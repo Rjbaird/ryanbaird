@@ -9,20 +9,16 @@ const Experience = () => {
             {/* <div className="md:flex bg-black py-16 sm:py-24 lg:py-32"> */}
             <div className="mx-auto max-w-md px-4  sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
                 <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-                <h2 className="text-base font-semibold tracking-wider text-indigo-600 uppercase">
-                    Deploy faster
-                </h2>
-                <p className="mt-2 text-3xl font-extrabold text-gray-200 tracking-tight sm:text-4xl">
-                    Everything you need to deploy your app
-                </p>
-                <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-                    Here's an overview of what I do
-                </p>
-
+                    <h2 className="text-base font-semibold tracking-wider text-indigo-600 uppercase">
+                        Deploy faster
+                    </h2>
+                    <p className="mt-2 text-3xl font-extrabold text-gray-200 tracking-tight sm:text-4xl">
+                        Everything you need to deploy your app
+                    </p>
+                    <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
+                        Here's an overview of what I do
+                    </p>
                 </div>
-
-
-
                 <section className="bg-black">
                     <div className="max-w-7xl mx-auto md:grid md:grid-cols-2 md:px-6 lg:px-8">
                         <ExperienceCard

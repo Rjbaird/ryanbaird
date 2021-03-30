@@ -4,7 +4,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 // import NavDropdown from './components/NavDropdown';
 import Home from './pages/Home';
-// import About from './pages/about';
+import About from './pages/About';
 import Portfolio from './pages/Projects';
 import Resume from './pages/Resume';
 
@@ -34,7 +34,7 @@ function App() {
       <Route path="/" exact component={Home}/>
       <Route path="/portfolio" component={Portfolio}/>
       <Route path="/resume" component={Resume}/>
-      {/* <Route path="/about" component={About}/> */}
+      <Route path="/about" component={About}/>
       </Switch>
     </div>
   );
