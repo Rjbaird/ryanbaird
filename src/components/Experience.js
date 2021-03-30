@@ -1,65 +1,79 @@
 import React from 'react'
+import ExperienceCard from './ExperienceCard'
+import { Link } from 'react-router-dom'
+
 
 const Experience = () => {
     return (
-        <div>
-            <section className="bg-indigo-800">
-                <div className="max-w-7xl mx-auto md:grid md:grid-cols-2 md:px-6 lg:px-8">
-                    <div className="py-12 px-4 sm:px-6 md:flex md:flex-col md:py-16 md:pl-0 md:pr-10 md:border-r md:border-indigo-900 lg:pr-16">
-                        <div className="md:flex-shrink-0">
-                            {/* <img className="h-12" src="" alt="Tuple"> */}
-      </div>
-                            <blockquote className="mt-6 md:flex-grow md:flex md:flex-col">
-                                <div className="relative text-lg font-medium text-white md:flex-grow">
-                                    <svg className="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-indigo-600" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
-                                        <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                                    </svg>
-                                    <p className="relative">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis.
-          </p>
+        <div className="md:flex bg-black py-16 sm:py-24 lg:py-32">
+            {/* <div className="md:flex bg-black py-16 sm:py-24 lg:py-32"> */}
+            <div className="mx-auto max-w-md px-4  sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
+                <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
+                <h2 className="text-base font-semibold tracking-wider text-indigo-600 uppercase">
+                    Deploy faster
+                </h2>
+                <p className="mt-2 text-3xl font-extrabold text-gray-200 tracking-tight sm:text-4xl">
+                    Everything you need to deploy your app
+                </p>
+                <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
+                    Here's an overview of what I do
+                </p>
+
+                </div>
+
+
+
+                <section className="bg-black">
+                    <div className="max-w-7xl mx-auto md:grid md:grid-cols-2 md:px-6 lg:px-8">
+                        <ExperienceCard
+                            data="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis. Nemo expedita voluptas culpa sapiente alias molestiae."
+                            time="2009 - 2013"
+                            location=""
+                        />
+                        <ExperienceCard
+                            data="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis. Nemo expedita voluptas culpa sapiente alias molestiae."
+                            time="2009 - 2013"
+                            location=""
+                        />
+                        <ExperienceCard
+                            data="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis. Nemo expedita voluptas culpa sapiente alias molestiae."
+                            time="2009 - 2013"
+                            location=""
+                        />
+                        <ExperienceCard
+                            data="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis. Nemo expedita voluptas culpa sapiente alias molestiae."
+                            time="2009 - 2013"
+                            location=""
+                        />
+                    </div>
+                </section>
+                <div className="md:flex bg-black">
+                    <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                        <div className="sm:text-center lg:text-left">
+                            <h1 className="text-4xl tracking-tight text-center font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                                <span className="block text-white">CTA 1</span>
+                                <span className="block text-indigo-600"> CTA 2</span>
+                            </h1>
+                            <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis. Nemo expedita voluptas culpa sapiente alias molestiae.
+                            </p>
+                            <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                                <div className="rounded-md shadow">
+                                    <Link href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                                        PDF
+                                    </Link>
                                 </div>
-                                <footer className="mt-8">
-                                    <div className="flex items-start">
-                                        <div className="flex-shrink-0 inline-flex rounded-full border-2 border-white">
-                                            {/* <img className="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixqx=1Q58JdKz5f&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""> */}
-            </div>
-                                            <div className="ml-4">
-                                                <div className="text-base font-medium text-white">Judith Black</div>
-                                                <div className="text-base font-medium text-indigo-200">CEO, Tuple</div>
-                                            </div>
-                                        </div>
-        </footer>
-      </blockquote>
-    </div>
-                            <div className="py-12 px-4 border-t-2 border-indigo-900 sm:px-6 md:py-16 md:pr-0 md:pl-10 md:border-t-0 md:border-l lg:pl-16">
-                                <div className="md:flex-shrink-0">
-                                    {/* <img className="h-12" src="https://tailwindui.com/img/logos/workcation-logo-indigo-300.svg" alt="Workcation"> */}
-      </div>
-                                    <blockquote className="mt-6 md:flex-grow md:flex md:flex-col">
-                                        <div className="relative text-lg font-medium text-white md:flex-grow">
-                                            <svg className="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-indigo-600" fill="currentColor" viewBox="0 0 32 32">
-                                                <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                                            </svg>
-                                            <p className="relative">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis. Nemo expedita voluptas culpa sapiente alias molestiae.
-          </p>
-                                        </div>
-                                        <footer className="mt-8">
-                                            <div className="flex items-start">
-                                                <div className="flex-shrink-0 inline-flex rounded-full border-2 border-white">
-                                                    {/* <img className="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixqx=1Q58JdKz5f&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""> */}
-            </div>
-                                                    <div className="ml-4">
-                                                        <div className="text-base font-medium text-white">Joseph Rodriguez</div>
-                                                        <div className="text-base font-medium text-indigo-200">CEO, Workcation</div>
-                                                    </div>
-                                                </div>
-        </footer>
-      </blockquote>
-    </div>
+                                <div className="mt-3 sm:mt-0 sm:ml-3">
+                                    <Link to="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
+                                        Doc (Word)
+                                    </Link>
                                 </div>
-</section>
+                            </div>
                         </div>
+                    </main>
+                </div>
+            </div>
+        </div>
     )
 }
 

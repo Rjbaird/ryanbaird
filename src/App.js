@@ -5,8 +5,8 @@ import Navbar from './components/Navbar';
 // import NavDropdown from './components/NavDropdown';
 import Home from './pages/Home';
 // import About from './pages/about';
-// import Portfolio from './pages/projects';
-// import Resume from './pages/resume';
+import Portfolio from './pages/Projects';
+import Resume from './pages/Resume';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +31,10 @@ function App() {
     <div className="">
       <Navbar toggle={toggle} />
       <Switch>
-        <Home />
+      <Route path="/" exact component={Home}/>
+      <Route path="/portfolio" component={Portfolio}/>
+      <Route path="/resume" component={Resume}/>
+      {/* <Route path="/about" component={About}/> */}
       </Switch>
     </div>
   );
