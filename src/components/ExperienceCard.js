@@ -23,7 +23,7 @@ const ExperienceCard = (props) => {
                         </div>
                         <div className="ml-4">
                             <div className="text-base font-medium text-white">{props.time}</div>
-                            <div className="text-base font-medium text-indigo-200">props.location</div>
+                            <div className="text-base font-medium text-indigo-200">{props.location}</div>
                         </div>
                     </div>
                 </footer>

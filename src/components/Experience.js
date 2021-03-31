@@ -1,6 +1,8 @@
 import React from 'react'
 import ExperienceCard from './ExperienceCard'
-import { Link } from 'react-router-dom'
+import resumePDF from '../assets/Ryan Baird - WebDev - 2021.pdf'
+import resumeDOCX from '../assets/Ryan Baird - WebDev - 2021.docx'
+
 
 
 const Experience = () => {
@@ -53,16 +55,16 @@ const Experience = () => {
                             <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis. Nemo expedita voluptas culpa sapiente alias molestiae.
                             </p>
-                            <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                                <div className="rounded-md shadow">
-                                    <Link href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                            <div className="mt-5 sm:mt-8 sm:flex justify-center">
+                                <div className="rounded-md center shadow">
+                                    <a href={resumePDF} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
                                         PDF
-                                    </Link>
+                                    </a>
                                 </div>
                                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                                    <Link to="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
-                                        Doc (Word)
-                                    </Link>
+                                    <a href={resumeDOCX} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
+                                        DOCX (Word)
+                                    </a>
                                 </div>
                             </div>
                         </div>

@@ -16,7 +16,6 @@ const ProjectsCard = (props) => {
                             </div>
                         </div>
                     </div>
-
                     <div className="relative bg-indigo-600 lg:col-start-3 lg:row-start-1 lg:col-span-10 lg:rounded-3xl lg:grid lg:grid-cols-10 lg:items-center">
                         <div className="hidden absolute inset-0 overflow-hidden rounded-3xl lg:block" aria-hidden="true">
                             <svg className="absolute bottom-full left-full transform translate-y-1/3 -translate-x-2/3 xl:bottom-auto xl:top-0 xl:translate-y-0" width="404" height="384" fill="none" viewBox="0 0 404 384" aria-hidden="true">
@@ -41,14 +40,14 @@ const ProjectsCard = (props) => {
                             <p className="text-lg text-white">{props.data}</p>
                             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                 <div className="rounded-md shadow">
-                                    <Link href={props.git} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                                    <a href={props.repo} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
                                         See the code 
-                                    </Link>
+                                    </a>
                                 </div>
                                 <div className="mt-3 sm:mt-0 sm:ml-3">
-                                    <Link href={props.link} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
+                                    <a href={props.link} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
                                         Check it out 
-                                    </Link>
+                                    </a>
                                 </div>
                             </div>
                         </div>
