@@ -12,13 +12,15 @@ const Experience = () => {
             <div className="mx-auto max-w-md px-4  sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
                 <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
                     <h2 className="text-base font-semibold tracking-wider text-indigo-600 uppercase">
-                        Deploy faster
+                        Ryan Baird's
                     </h2>
                     <p className="mt-2 text-3xl font-extrabold text-gray-200 tracking-tight sm:text-4xl">
-                        Everything you need to deploy your app
+                        Education and Work
                     </p>
                     <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-                        Here's an overview of what I do
+                    Here's everything (and more) that you'll want to know about my work experience and formal education. 
+                    I've had various career paths/interest so feel free to ask about anything. 
+                    You can download a simplified copy of my resume below.
                     </p>
                 </div>
                 <section className="bg-black">
@@ -49,11 +51,11 @@ const Experience = () => {
                     <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                         <div className="sm:text-center lg:text-left">
                             <h1 className="text-4xl tracking-tight text-center font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                                <span className="block text-white">CTA 1</span>
-                                <span className="block text-indigo-600"> CTA 2</span>
+                                {/* <span className="block text-white">CTA 1</span> */}
+                                <span className="block text-indigo-600"> Resumes</span>
                             </h1>
                             <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et corporis. Nemo expedita voluptas culpa sapiente alias molestiae.
+                                If you need a copy of my resume, you can download a PDF or DOCX copy below. 
                             </p>
                             <div className="mt-5 sm:mt-8 sm:flex justify-center">
                                 <div className="rounded-md center shadow">

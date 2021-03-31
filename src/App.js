@@ -30,11 +30,12 @@ function App() {
   return (
     <div className="">
       <Navbar toggle={toggle} />
+      {/* <NavDropdown /> */}
       <Switch>
-      <Route path="/" exact component={Home}/>
-      <Route path="/portfolio" component={Portfolio}/>
-      <Route path="/resume" component={Resume}/>
-      <Route path="/about" component={About}/>
+        <Route path="/" exact component={Home}/>
+        <Route path="/portfolio" component={Portfolio}/>
+        <Route path="/resume" component={Resume}/>
+        <Route path="/about" component={About}/>
       </Switch>
     </div>
   );
