@@ -55,7 +55,7 @@ const Experience = () => {
                                 <span className="block text-indigo-600"> Resumes</span>
                             </h1>
                             <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                                If you need a copy of my resume, you can download a PDF or DOCX copy below. 
+                                If you need a copy of my developer resume, you can download a PDF or DOCX copy below. 
                             </p>
                             <div className="mt-5 sm:mt-8 sm:flex justify-center">
                                 <div className="rounded-md center shadow">

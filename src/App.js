@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
-// import NavDropdown from './components/NavDropdown';
+import NavDropdown from './components/NavDropdown';
 import Home from './pages/Home';
 import About from './pages/About';
 import Portfolio from './pages/Projects';
@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="">
       <Navbar toggle={toggle} />
-      {/* <NavDropdown /> */}
+      <NavDropdown isOpen={ isOpen } toggle={ toggle } />
       <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/portfolio" component={Portfolio}/>
