@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Portfolio from './pages/Projects';
 import Resume from './pages/Resume';
+import Footer from './components/Footer';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,6 +38,7 @@ function App() {
         <Route path="/resume" component={Resume}/>
         <Route path="/about" component={About}/>
       </Switch>
+      <Footer/>
     </div>
   );
 }
