@@ -14,7 +14,8 @@ const Hero = () => {
                     <span className="block text-indigo-600 xl:inline"> I'm Ryan Baird</span>
                   </h1>
                   <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                  I'm a developer based in Minneapolis, MN focused on web development, productivity, business automation and mobile tech. 
+                  I'm a Full Stack Web Developer with a focus on a MERN (MongoDB, Express, React, Node.js) stack. 
+                  My background involves sales, business automation, mobile communications technologies, and team management.
                   </p>
                   <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                     <div className="rounded-md shadow">
