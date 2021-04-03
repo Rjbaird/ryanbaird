@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ExperienceCard = (props) => {
+const WorkCard = (props) => {
     return (
         <div className="py-8 px-4 sm:px-6 md:flex md:flex-col md:py-16 md:pl-0 md:pr-10 md:border-indigo-900 lg:pr-16">
             <h2 className="text-base text-2xl font-semibold tracking-wider text-indigo-500 uppercase">
@@ -33,4 +33,4 @@ const ExperienceCard = (props) => {
     )
 }
 
-export default ExperienceCard
+export default WorkCard
