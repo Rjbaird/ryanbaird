@@ -7,7 +7,7 @@ const SkillsCard = (props) => {
             <div className="-mt-6">
                 <div>
                     <span className="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
-                        <svg className="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <svg className="h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={props.svg} />
                         </svg>
                     </span>
