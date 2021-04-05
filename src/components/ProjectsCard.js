@@ -34,17 +34,22 @@ const ProjectsCard = (props) => {
                             </svg>
                         </div>
                         <div className="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6">
-                            <h2 className="text-3xl font-extrabold text-white" id="join-heading">{props.title}</h2>
-                            <p className="text-lg text-white">{props.data}</p>
+                            <h2 className="text-5xl text-center font-extrabold text-white" id="join-heading">{props.title}</h2>
+                            <p className="mt-8 border-t border-gray-200 pt-6 text-2xl text-white">{props.data}</p>
+                                <div>
+                                    <p className="text-xl text-white">
+                                        Build with {props.tech}
+                                    </p>
+                                </div>
                             <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                                 <div className="rounded-md shadow">
                                     <a href={props.repo} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
-                                        See the code 
+                                        {props.repoBtn}  
                                     </a>
                                 </div>
                                 <div className="mt-3 sm:mt-0 sm:ml-3">
                                     <a href={props.link} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
-                                        Check it out 
+                                        {props.linkBtn} 
                                     </a>
                                 </div>
                             </div>
