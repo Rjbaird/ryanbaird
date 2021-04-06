@@ -34,7 +34,7 @@ const ProjectsCard = (props) => {
                             </svg>
                         </div>
                         <div className="relative max-w-md mx-auto py-12 px-4 space-y-6 sm:max-w-3xl sm:py-16 sm:px-6 lg:max-w-none lg:p-0 lg:col-start-4 lg:col-span-6">
-                            <h2 className="text-5xl text-center font-extrabold text-white" id="join-heading">{props.title}</h2>
+                            <h2 className="sm:text-4xl lg:text-5xl text-center font-extrabold text-white" id="join-heading">{props.title}</h2>
                             <p className="mt-8 border-t border-gray-200 pt-6 text-2xl text-white">{props.data}</p>
                                 <div>
                                     <p className="text-xl text-white">

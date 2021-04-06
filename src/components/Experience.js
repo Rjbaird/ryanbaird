@@ -87,7 +87,6 @@ const Experience = () => {
                     <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-12 lg:mt-12 lg:px-8">
                         <div className="sm:text-center lg:text-left">
                             <h1 className="text-4xl tracking-tight text-center font-extrabold text-gray-900 sm:text-5xl">
-                                {/* <span className="block text-white">CTA 1</span> */}
                                 <span className="block text-indigo-600"> Resumes</span>
                             </h1>
                             <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
