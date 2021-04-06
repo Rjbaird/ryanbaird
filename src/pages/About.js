@@ -21,7 +21,7 @@ const About = () => {
                                 <span className="block text-indigo-600">Contact Info</span>
                             </h1>
                             <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl">
-                                
+                            {/* Subtext for contact info */}
                             </p>
                             <div className="mt-5 sm:mt-8 sm:flex justify-center">
                                 <PurpleBtn

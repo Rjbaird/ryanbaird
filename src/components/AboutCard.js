@@ -1,7 +1,5 @@
 import React from 'react'
-import pic from '../assets/profile_pic.jpg'
 import headshot from '../assets/professional_pic.jpg'
-import Header from './Header'
 import AboutMini from './AboutMini'
 
 const AboutCard = () => {

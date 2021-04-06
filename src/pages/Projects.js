@@ -20,7 +20,7 @@ const Projects = () => {
                     src={profilePic}
                     data="My personal website and portfolio. You'll find links to my (rarely used) social media accounts, contact information and links to my projects."
                     tech="React, Tailwind CSS & Firebase"
-                    link="https://www.google.com/"
+                    link="https://ryanbaird.com/"
                     linkBtn="Learn more here"
                     repo="https://github.com/Rjbaird/ryanbaird"
                     repoBtn="See the code"
