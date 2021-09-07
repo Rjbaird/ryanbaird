@@ -6,6 +6,7 @@ import ProjectCard from '../components/ProjectsCard'
 import weatherImg from '../assets/weather_mage.png'
 import passwordImg from '../assets/password_image.png'
 import ynabImg from '../assets/Coinbase_YNAB_Sync.png'
+import simImg from '../assets/SIM_checker.png'
 
 const Projects = () => {
     return (
@@ -33,17 +34,17 @@ const Projects = () => {
                     tech="Python & REST APIs"
                     link="https://www.youneedabudget.com/"
                     linkBtn="Learn about YNAB"
-                    repo="https://github.com/Rjbaird/GoogleAppsScripts"
+                    repo="https://github.com/Rjbaird/YNAB-Coinbase-Sync"
                     repoBtn="See the code"
                 />
                 <ProjectCard
-                    title="Password Generator"
-                    src={passwordImg}
-                    data="Stop using the same passwords for every app and use this simple password generator. Click 'Generate Password', answer the questions and recieve a randomly created password."
-                    tech="HTML, CSS & JavaScript"
-                    link="https://rjbaird.github.io/PasswordGenerator/"
-                    linkBtn="Try it out"
-                    repo="https://github.com/Rjbaird/PasswordGenerator"
+                    title="SIM Inventory Checker"
+                    src={simImg}
+                    data="This Google Apps Script helped save us hours of time each week by finding missing and extra SIM cards in our inventory."
+                    tech="JavaScript & Google App Scripts"
+                    link="https://www.google.com/script/start/"
+                    linkBtn="Learn about Google App Scripts"
+                    repo="https://github.com/Rjbaird/GoogleAppsScripts/tree/main/Full_Projects/SIM_Checker"
                     repoBtn="See the code"
                 />
                 <ProjectCard

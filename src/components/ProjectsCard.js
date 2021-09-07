@@ -3,9 +3,8 @@ import React from 'react'
 const ProjectsCard = (props) => {
     return (
         <div className="relative py-16 bg-black">
-            <div className="hidden absolute top-0 inset-x-0 h-1/2 bg-black lg:block" aria-hidden="true"></div>
             <div className="max-w-7xl mx-auto bg-indigo-600 lg:bg-transparent lg:px-8">
-                <div className="lg:grid lg:grid-cols-9 lg:grid-row-9">
+                <div className="lg:grid lg:grid-cols-12">
                     <div className="relative z-10 lg:col-start-1 lg:row-start-1 lg:col-span-4 lg:py-4 lg:bg-transparent">
                         <div className="absolute inset-x-0 h-1/2 bg-black lg:hidden" aria-hidden="true"></div>
                         <div className="max-w-md mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
