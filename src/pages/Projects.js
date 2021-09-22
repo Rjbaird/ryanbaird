@@ -3,7 +3,7 @@ import Header from '../components/Header'
 import profilePic from '../assets/profile_pic.jpg'
 
 import ProjectCard from '../components/ProjectsCard'
-import weatherImg from '../assets/weather_mage.png'
+import weatherImg from '../assets/Weather_dashboard.png'
 import passwordImg from '../assets/password_image.png'
 import ynabImg from '../assets/Coinbase_YNAB_Sync.png'
 import simImg from '../assets/SIM_checker.png'
