@@ -1,0 +1,19 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const posts = await Astro.glob("./*.mdx");
+---
+
+<BaseLayout>
+    <ul>
+        {
+            posts.map((post) => (
+                <li>
+                    <a href={post.url}>{post.frontmatter.title}</a>
+                    <br />
+                    <time>{post.frontmatter.publishDate}</time>
+                </li>
+            ))
+        }
+    </ul>
+</BaseLayout>

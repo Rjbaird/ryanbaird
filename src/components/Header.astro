@@ -1,0 +1,12 @@
+---
+let { navlinks } = Astro.props;
+---
+
+<header class="flex place-content-between pb-4">
+    <a class="text-red-500 text-4xl md:text-6xl" href="/">Ryan Baird</a>
+    <nav
+        class="flex space-x-4 justify-end items-end text-gray-100 text-lg md:text-2xl"
+    >
+        {navlinks.map((link) => <a href={link.url}>{link.name}</a>)}
+    </nav>
+</header>
