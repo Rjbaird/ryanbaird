@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import MDXLayout from "@layouts/MDXLayout.astro";
+
 const { frontmatter } = Astro.props;
 ---
 
@@ -12,9 +14,7 @@ const { frontmatter } = Astro.props;
             <h3>Tags: {frontmatter.tags.map((tag) => `${tag} `)}</h3>
         )
     }
-    <article
-        class="prose prose-p:text-gray-100 prose-a:text-green-500 prose-a:target:_blank hover:prose-a:text-yellow-400 prose-h2:text-yellow-400 prose-h2:text-lg"
-    >
+    <MDXLayout>
         <slot />
-    </article>
+    </MDXLayout>
 </BaseLayout>
