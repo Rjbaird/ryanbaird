@@ -5,7 +5,7 @@ import MDXLayout from "@layouts/MDXLayout.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout title={frontmatter.title}>
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
     <h3 class="text-indigo-500">{frontmatter.category}</h3>
     <h1 class="text-gray-100 text-5xl">{frontmatter.title}</h1>
     <hr class="my-8 border-t-2 w-3/4 mx-auto"/>
