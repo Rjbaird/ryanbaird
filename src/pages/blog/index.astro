@@ -2,16 +2,43 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const posts = await Astro.glob("./*.mdx");
+const projects = posts.filter(
+    (post) => post.frontmatter.category === "Project"
+);
+const reviews = posts.filter((post) => post.frontmatter.category === "Review");
 ---
 
 <BaseLayout>
+    <!-- TODO: Turn into component -->
+    {projects.length > 0 && <h3 class="text-xl">Projects</h3>}
     <ul>
         {
-            posts.map((post) => (
-                <li>
-                    <a href={post.url}>{post.frontmatter.title}</a>
-                    <br />
-                    <time>{post.frontmatter.publishDate}</time>
+            projects.map((project) => (
+                <li class="flex">
+                    <a class="text-red-500" href={project.url}>
+                        {project.frontmatter.category}:{" "}
+                        <span class="text-gray-100">
+                            {" "}
+                            {project.frontmatter.title}{" "}
+                        </span>
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+
+    {reviews.length > 0 && <h3>Reviews</h3>}
+    <ul>
+        {
+            reviews.map((review) => (
+                <li class="flex">
+                    <a class="text-red-500" href={review.url}>
+                        {review.frontmatter.category}:{" "}
+                        <span class="text-gray-100">
+                            {" "}
+                            {review.frontmatter.title}{" "}
+                        </span>
+                    </a>
                 </li>
             ))
         }
