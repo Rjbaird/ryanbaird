@@ -15,7 +15,7 @@ const reviews = posts.filter((post) => post.frontmatter.category === "Review");
         {
             projects.map((project) => (
                 <li class="flex">
-                    <a class="text-red-500" href={project.url}>
+                    <a class="text-rc-red-3" href={project.url}>
                         {project.frontmatter.category}:{" "}
                         <span class="text-gray-100">
                             {" "}
@@ -32,7 +32,7 @@ const reviews = posts.filter((post) => post.frontmatter.category === "Review");
         {
             reviews.map((review) => (
                 <li class="flex">
-                    <a class="text-red-500" href={review.url}>
+                    <a class="text-rc-red-3" href={review.url}>
                         {review.frontmatter.category}:{" "}
                         <span class="text-gray-100">
                             {" "}
