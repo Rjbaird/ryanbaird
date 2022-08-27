@@ -3,9 +3,11 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 
 const posts = await Astro.glob("./*.mdx");
 const projects = posts.filter(
-    (post) => post.frontmatter.category === "Project"
+    (post) => post.frontmatter.category === "Project" && !post.frontmatter.draft
 );
-const reviews = posts.filter((post) => post.frontmatter.category === "Review");
+const reviews = posts.filter(
+    (post) => post.frontmatter.category === "Review" && !post.frontmatter.draft
+);
 ---
 
 <BaseLayout>
