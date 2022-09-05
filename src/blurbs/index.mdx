@@ -6,6 +6,10 @@ category: "About"
 publishDate: 2022-08-24
 updatedDate: 2022-08-25
 ---
+import Link from '@components/md/Link.astro';
+export const components = { a: Link };
+
+
 
 # Me in 10 seconds:
 
@@ -15,6 +19,8 @@ Inquisitive, [introverted](http://typelogic.com/intj.html), tech-enthusiast, and
 
 Iowa native, currently in Minnesota
 
-Currently building a new blog with [Astro](https://astro.build/) & [MDX](https://mdxjs.com/)
+Currently building a new blog with [Astro](https://astro.build/ "Astro") & [MDX](https://mdxjs.com/ "MDX")
 
-Career stuff is [here](/career)
+My career stuff: [/career](/career)
+
+{/* If you're looking to work with me, fill out the form at [/hire-me](/hire-me) */}

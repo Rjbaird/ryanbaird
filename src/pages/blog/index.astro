@@ -2,24 +2,30 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 const posts = await Astro.glob("./*.mdx");
+
+const tags = posts.map((post) => {
+    post.frontmatter.tags;
+});
+
 const projects = posts.filter(
     (post) => post.frontmatter.category === "Project" && !post.frontmatter.draft
 );
 const reviews = posts.filter(
     (post) => post.frontmatter.category === "Review" && !post.frontmatter.draft
 );
+
 ---
 
 <BaseLayout>
     <!-- TODO: Turn into component -->
-    {projects.length > 0 && <h3 class="text-xl">Projects</h3>}
+    <!-- {projects.length > 0 && <h3 class="text-xl">Projects</h3>} -->
     <ul>
         {
             projects.map((project) => (
                 <li class="flex">
-                    <a class="text-rc-red-3" href={project.url}>
+                    <a class="text-rc-red-3 text-xl" href={project.url}>
                         {project.frontmatter.category}:{" "}
-                        <span class="text-gray-100">
+                        <span class="text-gray-100 text-xl hover:underline hover:decoration-rc-red-3">
                             {" "}
                             {project.frontmatter.title}{" "}
                         </span>

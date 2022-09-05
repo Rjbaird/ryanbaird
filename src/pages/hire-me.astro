@@ -1,0 +1,44 @@
+---
+import HireMe from "@blurbs/hireMe.mdx";
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+    title="Ryan Baird"
+    description="Ryan Baird's Development Portfolio & Blog"
+>
+    <div class="prose prose-lg">
+        <HireMe />
+        <form
+            name="contact"
+            method="POST"
+            netlify-honeypot="bot-field"
+            data-netlify="true"
+            class="text-rc-red-3"
+        >
+            <p class="hidden">
+                <label>
+                    Please don’t fill this out <input name="bot-field" />
+                </label>
+            </p>
+            <p>
+                <label>
+                    Name: <input type="text" name="name" />
+                </label>
+            </p>
+            <p>
+                <label>
+                    Email: <input type="text" name="email" />
+                </label>
+            </p>
+            <p>
+                <label>
+                    Message: <textarea name="message"></textarea>
+                </label>
+            </p>
+            <p>
+                <button type="submit">Send</button>
+            </p>
+        </form>
+    </div>
+</BaseLayout>
