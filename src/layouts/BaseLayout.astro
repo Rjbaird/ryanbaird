@@ -1,35 +1,36 @@
 ---
-import icon from "@assets/astro.svg";
-import BaseHead from "@components/BaseHead.astro";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
+import icon from '@assets/astro.svg'
+import BaseHead from '@components/BaseHead.astro'
+import Footer from '@components/Footer.astro'
+import Header from '@components/Header.astro'
 
-let { title, description } = Astro.props;
+let { title, description } = Astro.props
 
 const navlinks = [
-    // {
-    //     name: "Blog",
-    //     url: "/blog",
-    // },
-    {
-        name: "Projects",
-        url: "/projects",
-    },
-    {
-        name: "Work",
-        url: "/work",
-    },
-
-];
+  // {
+  //     name: "Blog",
+  //     url: "/blog",
+  // },
+  {
+    name: 'Projects',
+    url: '/projects',
+  },
+  {
+    name: 'Work',
+    url: '/work',
+  },
+]
 ---
 
 <html lang="en" class="min-h-screen">
-    <head>
-        <BaseHead title={title} description={description} image={icon} />
-    </head>
-    <body class="bg-[#121212] p-3 md:px-48 md:pt-8 text-gray-100 h-screen min-h-screen">
-        <Header navlinks={navlinks} />
-        <slot />
-        <Footer />
-    </body>
+  <head>
+    <BaseHead title={title} description={description} image={icon} />
+  </head>
+  <body
+    class="bg-[#121212] p-6 md:px-48 md:pt-8 text-gray-100 h-screen min-h-screen"
+  >
+    <Header navlinks={navlinks} />
+    <slot />
+    <Footer />
+  </body>
 </html>

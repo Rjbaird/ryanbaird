@@ -19,6 +19,8 @@
     "@astrojs/tailwind": "^1.0.0",
     "@tailwindcss/typography": "^0.5.4",
     "astro": "^1.0.6",
+    "prettier": "^2.8.1",
+    "prettier-plugin-tailwindcss": "^0.2.1",
     "solid-js": "^1.4.8"
   },
   "dependencies": {
