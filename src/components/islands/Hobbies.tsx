@@ -1,4 +1,4 @@
-import { createSignal, onCleanup } from "solid-js";
+import { createSignal, onCleanup, onMount } from "solid-js";
 
 interface HobbiesOption {
     text: string;
@@ -36,6 +36,11 @@ const getHobbies = (hobbiesOptions: HobbiesOption[]) => {
 
 export function Hobbies() {
     const [subhobby, setHobby] = createSignal(hobbiesOptions[0].text);
+    onMount(() => {
+        const firstHobby = getHobbies(hobbiesOptions);
+        setHobby(firstHobby);
+    });
+
     const timer = setInterval(() => {
         const newHobby = getHobbies(hobbiesOptions);
         setHobby(newHobby);
