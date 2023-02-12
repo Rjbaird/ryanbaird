@@ -1,12 +1,36 @@
 ---
-let { navlinks } = Astro.props;
+import profilePic from "../assets/images/profile_pic.jpg";
+const navlinks = [
+    {
+        name: "Blog",
+        url: "/blog",
+    },
+    {
+        name: "Projects",
+        url: "/projects",
+    },
+    {
+        name: "Work",
+        url: "/work",
+    },
+];
 ---
 
-<header class="flex place-content-between pb-4">
-    <a class="text-rc-red-3 text-4xl md:text-6xl" href="/">Ryan Baird</a>
-    <nav
-        class="flex space-x-4 justify-end items-end text-gray-100 text-lg md:text-2xl"
-    >
-        {navlinks.map((link) => <a href={link.url}>{link.name}</a>)}
+<header class="flex flex-row place-content-between pb-4">
+    <a class="flex flex-row space-x-2" href="/">
+        <img
+            class="rounded-full aspect-square w-12 h-12"
+            src={profilePic}
+            alt="Ryan Baird Profile Picture"
+        />
+    </a>
+    <nav class="flex space-x-4 md:justify-end items-end text-white">
+        {
+            navlinks.map((link) => (
+                <a class="text-lg md:text-xl" href={link.url}>
+                    {link.name}
+                </a>
+            ))
+        }
     </nav>
 </header>

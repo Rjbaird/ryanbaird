@@ -1,50 +1,36 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-
-const posts = await Astro.glob("./*.mdx");
-
-const tags = posts.map((post) => {
-    post.frontmatter.tags;
-});
-
-const projects = posts.filter(
-    (post) => post.frontmatter.category === "Project" && !post.frontmatter.draft
-);
-const reviews = posts.filter(
-    (post) => post.frontmatter.category === "Review" && !post.frontmatter.draft
-);
-
+import { getCollection, getEntryBySlug } from "astro:content";
+import dayjs from "dayjs";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Prose from "../../layouts/Prose.astro";
+const arrow = "-->";
+const entry = await getEntryBySlug("blurbs", "blog");
+const { Content } = await entry.render();
+const blogEntries = await getCollection("blog");
 ---
 
-<BaseLayout>
-    <!-- TODO: Turn into component -->
-    <!-- {projects.length > 0 && <h3 class="text-xl">Projects</h3>} -->
+<BaseLayout title="Ryan's Blog Posts" description="">
+    <h1 class="pb-2 text-xl text-red-400 underline">
+        {entry.data.title}
+    </h1>
+    <Prose>
+        <Content />
+    </Prose>
     <ul>
         {
-            projects.map((project) => (
-                <li class="flex">
-                    <a class="text-rc-red-3 text-xl" href={project.url}>
-                        {project.frontmatter.category}:{" "}
-                        <span class="text-gray-100 text-xl hover:underline hover:decoration-rc-red-3">
-                            {" "}
-                            {project.frontmatter.title}{" "}
-                        </span>
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
-
-    {reviews.length > 0 && <h3>Reviews</h3>}
-    <ul>
-        {
-            reviews.map((review) => (
-                <li class="flex">
-                    <a class="text-rc-red-3" href={review.url}>
-                        {review.frontmatter.category}:{" "}
-                        <span class="text-gray-100">
-                            {" "}
-                            {review.frontmatter.title}{" "}
+            blogEntries.map((blogPostEntry) => (
+                <li class="text-sm md:text-base">
+                    <time datetime={blogPostEntry.data.pubDate.toISOString()}>
+                        {dayjs(blogPostEntry.data.pubDate).format("YYYY-MM-DD")}{" "}
+                        {arrow}
+                    </time>
+                    <a
+                        href={`/blog/${blogPostEntry.slug}`}
+                        class="text-green-400 hover:text-red-400"
+                    >
+                        {blogPostEntry.data.title}{" "}
+                        <span class="hidden md:inline-block text-xs text-gray-200">
+                            -{blogPostEntry.data.description}
                         </span>
                     </a>
                 </li>

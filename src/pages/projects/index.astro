@@ -1,0 +1,34 @@
+---
+const projectEntries = await getCollection("projects");
+import { getCollection, getEntryBySlug } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Prose from "../../layouts/Prose.astro";
+const entry = await getEntryBySlug("blurbs", "projects");
+const { Content } = await entry.render();
+---
+
+<BaseLayout title="Ryan's Projects" description="">
+    <h1 class="pb-2 text-xl text-red-400 underline">
+        {entry.data.title}
+    </h1>
+    <Prose>
+        <Content />
+    </Prose>
+    <!-- <ul>
+        {
+            projectEntries.map((projectEntry, i) => (
+                <li class="flex text-sm md:text-base">
+                    <a href={`/projects/${projectEntry.slug}`}>
+                        <span class="text-gray-200">#{i + 1}</span>
+                        <span class="text-blue-400 hover:text-orange-400">
+                            {projectEntry.data.title}
+                        </span>
+                        <span class="hidden md:inline-block text-xs text-gray-200">
+                            -{projectEntry.data.description}
+                        </span>
+                    </a>
+                </li>
+            ))
+        }
+    </ul> -->
+</BaseLayout>

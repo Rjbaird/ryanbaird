@@ -1,33 +1,41 @@
 ---
-import Icon from "astro-icon";
+import { Icon } from "astro-icon";
 const today = new Date();
+const svgBaseClass = `w-6 h-6 fill-current stroke-2 text-`;
 const icons = [
     {
         name: "Github",
-        handle: "uit:github-alt",
+        handle: "simple-icons:github",
+        color: `${svgBaseClass} hover:text-[#ffffff]`,
         link: "https://github.com/Rjbaird",
     },
     {
         name: "Linkedin",
-        handle: "uit:linkedin-alt",
+        handle: "simple-icons:linkedin",
+        color: `${svgBaseClass} hover:text-[#0A66C2]`,
         link: "https://www.linkedin.com/in/bairdryan/",
     },
     {
         name: "Twitter",
-        handle: "uit:twitter-alt",
+        handle: "simple-icons:twitter",
+        color: `${svgBaseClass} hover:text-[#1DA1F2]`,
         link: "https://twitter.com/ryanjohnbaird",
     },
     {
-        name: "YouTube",
-        handle: "uit:youtube",
-        link: "https://youtu.be/dQw4w9WgXcQ",
+        name: "RSS",
+        handle: "simple-icons:rss",
+        color: `${svgBaseClass} hover:text-[#FFA500]`,
+        link: "https://ryanbaird.com/rss.xml",
     },
 ];
 ---
 
 <footer class="text-white sticky top-[100vh] py-6 px-3 md:px-0">
     <div class="max-w-7xl mx-auto flex md:items-center justify-between">
-        &copy;{today.getFullYear()} Ryan Baird
+        <div class="flex gap-2">
+            &copy;{today.getFullYear()}
+            <span class="hidden md:block">Ryan Baird</span>
+        </div>
         <div class="flex justify-center space-x-6 md:order-2">
             {
                 icons.map((icon) => (
@@ -38,7 +46,7 @@ const icons = [
                         class="text-white hover:text-gray-300"
                     >
                         <span class="sr-only">{icon.name}</span>
-                        <Icon name={icon.handle} class="h-7 w-7" />
+                        <Icon class={icon.color} name={icon.handle} />
                     </a>
                 ))
             }

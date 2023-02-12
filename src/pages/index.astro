@@ -1,13 +1,20 @@
 ---
-import Index from "@blurbs/index.mdx";
-import BaseLayout from "@layouts/BaseLayout.astro";
+import { getEntryBySlug } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Prose from "../layouts/Prose.astro";
+const entry = await getEntryBySlug("blurbs", "index");
+const { Content } = await entry.render();
 ---
 
 <BaseLayout
-    title="Ryan Baird"
-    description="Ryan Baird's Portfolio & Blog"
+    title={entry.data.title}
+    description={entry.data.description}
+    keywords={entry.data.tags}
 >
-    <div class="prose prose-lg">
-        <Index />
-    </div>
+    <main>
+        <h1 class="pb-2 text-xl text-red-400">{entry.data.title}</h1>
+        <Prose>
+            <Content />
+        </Prose>
+    </main>
 </BaseLayout>

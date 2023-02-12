@@ -1,0 +1,44 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import dayjs from "dayjs";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Prose from "../../layouts/Prose.astro";
+export async function getStaticPaths() {
+    const allProjects = await getCollection("projects");
+    return allProjects.map((project) => ({
+        params: { slug: project.slug },
+        props: { project },
+    }));
+}
+
+const { project } = Astro.props as { project: CollectionEntry<"projects"> };
+const { Content } = await project.render();
+---
+
+<BaseLayout
+    title={project.data.title}
+    description={project.data.description}
+    keywords={project.data.tags}
+>
+    <h1 class="text-4xl pb-2">{project.data.title}</h1>
+    <div class="flex flex-col md:flex-row">
+        <time class="text-xs pr-3"
+            >{dayjs(project.data.pubDate).format("MMM DD, YYYY")}</time
+        >
+        <ul class="flex flex-row space-x-2">
+            {
+                project.data.tags.map((tag) => {
+                    return (
+                        <li class="text-sm font-semibold text-white px-1">
+                            {tag.toLowerCase()}
+                        </li>
+                    );
+                })
+            }
+        </ul>
+    </div>
+    <Prose>
+        <Content />
+    </Prose>
+</BaseLayout>

@@ -1,0 +1,49 @@
+---
+// https://tailwindcss.com/docs/typography-plugin#element-modifiers
+
+const blogProseOptions = [
+    {
+        // paragraphs should be white w/ no extra styles
+        name: "p",
+        base: ["text-white"],
+        hover: [],
+    },
+    {
+        // a tags should be blue, underline, and have a hover effect
+        name: "a",
+        base: ["text-blue-400"],
+        hover: [],
+    },
+    {
+        // a tags should be blue, underline, and have a hover effect
+        name: "ul",
+        base: ["text-white"],
+        hover: [],
+    },
+    {
+        // H1 tags should be bold and kinda large
+        name: "h2",
+        base: ["text-white"],
+        hover: [],
+    },
+    {
+        // H3 tags should be semibold and barely large
+        name: "h3",
+        base: ["text-red-400 underline"],
+        hover: ["hover:no-underline"],
+    },
+];
+
+const proseOptions = blogProseOptions.map((option) => {
+    return option.base;
+});
+const proseClass = `py-2 prose max-w-prose prose-sm lg:prose-base ${proseOptions.join(
+    " "
+)}`;
+---
+
+<article
+    class="py-2 prose max-w-prose prose-sm lg:prose-base prose-p:text-white prose-a:text-blue-400 prose-h2:text-green-400 prose-h2:underline prose-h3:text-yellow-400 prose-h3:underline prose-h1:text-red-400 prose-h1:underline prose-h4:text-yellow-400 prose-h4:underline decoration-white prose-ul:text-white prose-strong:text-indigo-400 justify-items-center"
+>
+    <slot />
+</article>
