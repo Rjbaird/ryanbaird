@@ -35,7 +35,7 @@ const getHobbies = (hobbiesOptions: HobbiesOption[]) => {
 };
 
 export function Hobbies() {
-    const [subhobby, setHobby] = createSignal(hobbiesOptions[0].text);
+    const [subhobby, setHobby] = createSignal("");
     onMount(() => {
         const firstHobby = getHobbies(hobbiesOptions);
         setHobby(firstHobby);
