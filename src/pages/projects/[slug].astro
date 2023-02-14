@@ -21,22 +21,15 @@ const { Content } = await project.render();
     description={project.data.description}
     keywords={project.data.tags}
 >
-    <h1 class="text-4xl pb-2">{project.data.title}</h1>
+    <h1
+        class="bg-gradient-to-r from-blue-500 via-red-500 to-red-500 bg-clip-text pb-2 text-4xl text-transparent"
+    >
+        {project.data.title}
+    </h1>
     <div class="flex flex-col md:flex-row">
-        <time class="text-xs pr-3"
+        <time class="pr-3 text-xs"
             >{dayjs(project.data.pubDate).format("MMM DD, YYYY")}</time
         >
-        <ul class="flex flex-row space-x-2">
-            {
-                project.data.tags.map((tag) => {
-                    return (
-                        <li class="text-sm font-semibold text-white px-1">
-                            {tag.toLowerCase()}
-                        </li>
-                    );
-                })
-            }
-        </ul>
     </div>
     <Prose>
         <Content />

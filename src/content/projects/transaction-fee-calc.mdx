@@ -1,0 +1,29 @@
+---
+title: "Transaction Fee Calculator"
+description: "Find out how much you'll make after card processing fees"
+category: [site]
+pubDate: 2023-02-13
+updatedDate: 2023-02-13
+tags: [Astro, SolidJS, TailwindCSS]
+draft: true
+---
+
+The _Transaction Fee Calculator_ is a simple tool to find out how much you'll profit after processing fees from small business payment apps such as [Venmo](https://venmo.com/business/profiles/ "Venmo Business") or [Square](https://squareup.com/us/en "Square Business").
+
+As my partner and her woodfire group started to prepare for an upcoming art event, they asked me to help set up their payment system. Because everyone in the group would want to price their pieces differently, I wanted to give them an easy way to figure out their profits for each piece after processing fees. I first thought about creating a Google Sheet to share with everyone but eventually decided to build a simple web app instead and try out some new web frameworks. Here's the result:
+
+---
+
+For this project, I decided on using SolidJS for a few reasons: it's similar to [React](https://reactjs.org/ "React"), I wanted some practice with Solid's state management before moving on to bigger projects and, most importantly, the creator of has both a great name and [YouTube channel](https://youtube.com/@ryansolid "Ryan Carniato's YouTube Channel"). For CSS, I almost always default to using [TailwindCSS](https://tailwindcss.com/ "TailwindCSS") for it's ease of use. I also used this as an opprotunity to practice using [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout "CSS Grid") instead of [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/ "Flexbox")
+
+Most card processors follow the same basic formula of charging both a variable processing fee (depending on how you took the payment) and a constant fee per transaction, typically around $0.10. This fee applies to all purchases so I needed to keep track of a few things: the current processing fee percent, the constant processing fee, the sales tax and a list of all the products to be sold. All of these are easily managed and updated with SolidJS's build in state management tools, Signals and Stores.
+
+In the end, I was able to create a Transaction Fee Calculator that lets you add your products and price, adjust the fee sliders and view live updates to you profits for each product. All data is stored locally in the browser.
+
+Eventually, I'd like to fix and add the following:
+
+-   Adjustable tax rates
+-   Move export options, mainly CSV
+-   Local storage limit alerts
+
+If you have any questions, feedback or issues about this project, please reach out! 😊
