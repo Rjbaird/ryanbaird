@@ -3,38 +3,69 @@ import { getCollection, getEntryBySlug } from "astro:content";
 import dayjs from "dayjs";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Prose from "../../layouts/Prose.astro";
-const arrow = "-->";
-const entry = await getEntryBySlug("blurbs", "blog");
-const { Content } = await entry.render();
-const blogEntries = await getCollection("blog");
+const blogBlurb = await getEntryBySlug("blurbs", "blog");
+
+const { Content } = await blogBlurb.render();
+const blogEntries = await getCollection("blog", ({ data }) => {
+    return data.draft !== true;
+});
+
+const projectsEntries = await getCollection("projects");
+const allEntries = [...blogEntries, ...projectsEntries];
 ---
 
 <BaseLayout title="Ryan's Blog Posts" description="">
     <h1 class="pb-2 text-xl text-red-400 underline">
-        {entry.data.title}
+        {blogBlurb.data.title}
     </h1>
     <Prose>
         <Content />
     </Prose>
-    <ul>
+    <div>
         {
             blogEntries.map((blogPostEntry) => (
-                <li class="text-sm md:text-base">
-                    <time datetime={blogPostEntry.data.pubDate.toISOString()}>
-                        {dayjs(blogPostEntry.data.pubDate).format("YYYY-MM-DD")}{" "}
-                        {arrow}
-                    </time>
-                    <a
-                        href={`/blog/${blogPostEntry.slug}`}
-                        class="text-green-400 hover:text-red-400"
-                    >
-                        {blogPostEntry.data.title}{" "}
-                        <span class="hidden md:inline-block text-xs text-gray-200">
-                            -{blogPostEntry.data.description}
-                        </span>
-                    </a>
-                </li>
+                <a href={`/blog/${blogPostEntry.slug}`} class="block pb-2">
+                    <p class="text-base font-semibold text-blue-400 hover:text-orange-200 md:text-lg">
+                        {blogPostEntry.data.title}
+                    </p>
+                    <p class="text-sm text-gray-200">
+                        {blogPostEntry.data.description}
+                    </p>
+                    <div class="flex items-center">
+                        <time
+                            class="text-xs italic text-gray-200"
+                            datetime={blogPostEntry.data.pubDate.toISOString()}
+                        >
+                            {dayjs(blogPostEntry.data.pubDate).format(
+                                "YYYY-MM-DD"
+                            )}
+                        </time>
+                    </div>
+                </a>
             ))
         }
-    </ul>
+
+        {
+            projectsEntries.map((projectPostEntry) => (
+                <a href={`/projects/${projectPostEntry.slug}`} class="block pb-2">
+                    <p class="text-base font-semibold text-blue-400 hover:text-orange-200 md:text-lg">
+                        {projectPostEntry.data.title}
+                    </p>
+                    <div class="flex items-center">
+                        <time
+                            class="text-xs italic text-gray-200"
+                            datetime={projectPostEntry.data.pubDate.toISOString()}
+                        >
+                            {dayjs(projectPostEntry.data.pubDate).format(
+                                "YYYY-MM-DD"
+                            )}
+                        </time>
+                    </div>
+                    <p class="text-sm text-gray-200">
+                        {projectPostEntry.data.description}
+                    </p>
+                </a>
+            ))
+        }
+    </div>
 </BaseLayout>
