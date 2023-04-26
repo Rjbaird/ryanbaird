@@ -8,7 +8,7 @@ interface HobbiesOption {
 
 const hobbiesOptions = [
     {
-        text: "trying out new web development tools like astro, solid.js and tailwind css",
+        text: "loving zod",
         active: true,
         link: "",
     },
@@ -18,12 +18,12 @@ const hobbiesOptions = [
         link: "",
     },
     {
-        text: "reading one piece",
+        text: "rebuilding my shonen jump api",
         active: true,
         link: "",
     },
     {
-        text: "playing fire emblem engage",
+        text: "playing the stanley parable",
         active: true,
         link: "",
     },
