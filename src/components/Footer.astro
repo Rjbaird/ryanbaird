@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon";
 const today = new Date();
-const svgBaseClass = `w-6 h-6 fill-current stroke-2 text-`;
+const svgBaseClass = `w-6 h-6 fill-current stroke-2`;
 const icons = [
     {
         name: "Github",
@@ -21,20 +21,22 @@ const icons = [
         color: `${svgBaseClass} hover:text-[#1DA1F2]`,
         link: "https://twitter.com/ryanjohnbaird",
     },
-    {
-        name: "RSS",
-        handle: "simple-icons:rss",
-        color: `${svgBaseClass} hover:text-[#FFA500]`,
-        link: "https://ryanbaird.com/rss.xml",
-    },
+    // {
+    //     name: "RSS",
+    //     handle: "simple-icons:rss",
+    //     color: `${svgBaseClass} hover:text-[#FFA500]`,
+    //     link: "https://ryanbaird.com/rss.xml",
+    // },
 ];
 ---
 
-<footer class="text-white sticky top-[100vh] py-6 px-3 md:px-0">
-    <div class="max-w-7xl mx-auto flex md:items-center justify-between">
-        <div class="flex gap-2">
+<footer class="sticky top-[100vh] pt-10 text-white">
+    <div class="mx-auto flex max-w-7xl justify-between md:items-center">
+        <div class="flex gap-2 text-sm">
             &copy;{today.getFullYear()}
             <span class="hidden md:block">Ryan Baird</span>
+            <span class="hidden text-red-400 md:block">|</span>
+            <span class="hidden md:block">All rights reserved.</span>
         </div>
         <div class="flex justify-center space-x-6 md:order-2">
             {
