@@ -1,0 +1,16 @@
+---
+import { getEntryBySlug } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Prose from "../../layouts/Prose.astro";
+import ContactForm from "../../components/ContactForm.astro";
+const entry = await getEntryBySlug("blurbs", "contact");
+const { Content } = await entry.render();
+---
+
+<BaseLayout title="Contact Me" description={entry.data.description}>
+    <h1 class="pb-2 text-xl text-red-400 underline">Contact Me</h1>
+    <Prose>
+        <Content />
+    </Prose>
+    <ContactForm />
+</BaseLayout>

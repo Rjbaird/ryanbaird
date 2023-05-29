@@ -1,0 +1,25 @@
+---
+import { getEntryBySlug } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Prose from "../layouts/Prose.astro";
+const entry = await getEntryBySlug("blurbs", "index");
+const { Content } = await entry.render();
+const keywords = ["success", "contact", "form"];
+---
+
+<BaseLayout
+    title="Success!"
+    description="Contact form success page"
+    keywords={keywords}
+>
+    <main>
+        <h1 class="pb-2 text-xl text-red-400">Success!</h1>
+        <Prose>
+            <p>
+                Hey thanks for reaching out! I'll get back to you as soon as I
+                can. Hopefully that's in the next few days, but if not, please
+                be patient with me. Life happens to the best of us :)
+            </p>
+        </Prose>
+    </main>
+</BaseLayout>

@@ -9,7 +9,6 @@ const [currentDescription, setCurrentDescription] = createSignal("");
 
 export function HeaderSubtitle() {
     return (
-        
         <Switch fallback={<p>{currentDescription()} is between 5 and 10</p>}>
             <Match when={currentDescription() === 'medium'}>
                 <p>{currentDescription()} is greater than 10</p>

@@ -1,0 +1,21 @@
+<form
+    class="flex flex-col space-y-2"
+    name="contact"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    action="/success"
+>
+    <label class="hidden" for="bot-field"
+        >Don’t fill this out if you’re human:</label
+    >
+    <input class="hidden" type="text" name="bot-field" id="name" />
+    <label for="name">Name:</label>
+    <input required class="form-input" type="text" name="name" id="name" />
+    <label for="email">Email:</label>
+    <input required class="form-input" type="email" name="email" id="email" />
+    <label for="message">What can I help you with:</label>
+    <textarea required class="form-input" name="message" id="message"
+    ></textarea>
+    <button class="border text-red-400" type="submit">Submit</button>
+</form>
