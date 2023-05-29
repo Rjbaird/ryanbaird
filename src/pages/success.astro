@@ -1,9 +1,6 @@
 ---
-import { getEntryBySlug } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Prose from "../layouts/Prose.astro";
-const entry = await getEntryBySlug("blurbs", "index");
-const { Content } = await entry.render();
 const keywords = ["success", "contact", "form"];
 ---
 
