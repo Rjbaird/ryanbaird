@@ -18,7 +18,7 @@
             active: true,
         },
         {
-            text: "fighting an addiction to play Vampire Survivors again...",
+            text: "fighting an addiction to play another round of Vampire Survivors...",
             active: true,
         },
         {
