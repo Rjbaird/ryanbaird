@@ -11,7 +11,11 @@ const blogEntries = await getCollection("blog", ({ data }) => {
 });
 
 const projectsEntries = await getCollection("projects");
-const allEntries = [...blogEntries, ...projectsEntries];
+const allEntries = [...blogEntries, ...projectsEntries].sort((a, b) => {
+    return dayjs(b.data.pubDate).unix() - dayjs(a.data.pubDate).unix();
+});
+
+// console.log(allEntries);
 ---
 
 <BaseLayout title="Ryan's Blog Posts" description="">
@@ -23,47 +27,24 @@ const allEntries = [...blogEntries, ...projectsEntries];
     </Prose>
     <div>
         {
-            blogEntries.map((blogPostEntry) => (
-                <a href={`/blog/${blogPostEntry.slug}`} class="block pb-2">
+            allEntries.map((post) => (
+                <a href={`/${post.collection}/${post.slug}`} class="block pb-2">
                     <p class="text-base font-semibold text-blue-400 hover:text-orange-200 md:text-lg">
-                        {blogPostEntry.data.title}
-                    </p>
-                    <p class="text-sm text-gray-200">
-                        {blogPostEntry.data.description}
+                        {post.data.title}
                     </p>
                     <div class="flex items-center">
+                        <span class="text-xs text-gray-200">
+                            {post.collection}
+                        </span>
                         <time
                             class="text-xs italic text-gray-200"
-                            datetime={blogPostEntry.data.pubDate.toISOString()}
+                            datetime={post.data.pubDate.toISOString()}
                         >
-                            {dayjs(blogPostEntry.data.pubDate).format(
-                                "YYYY-MM-DD"
-                            )}
+                            &bull;{" "}
+                            {dayjs(post.data.pubDate).format("YYYY-MM-DD")}
                         </time>
                     </div>
-                </a>
-            ))
-        }
-
-        {
-            projectsEntries.map((projectPostEntry) => (
-                <a href={`/projects/${projectPostEntry.slug}`} class="block pb-2">
-                    <p class="text-base font-semibold text-blue-400 hover:text-orange-200 md:text-lg">
-                        {projectPostEntry.data.title}
-                    </p>
-                    <div class="flex items-center">
-                        <time
-                            class="text-xs italic text-gray-200"
-                            datetime={projectPostEntry.data.pubDate.toISOString()}
-                        >
-                            {dayjs(projectPostEntry.data.pubDate).format(
-                                "YYYY-MM-DD"
-                            )}
-                        </time>
-                    </div>
-                    <p class="text-sm text-gray-200">
-                        {projectPostEntry.data.description}
-                    </p>
+                    <p class="text-sm text-gray-200">{post.data.description}</p>
                 </a>
             ))
         }
