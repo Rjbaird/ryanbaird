@@ -6,19 +6,23 @@
 
     let hobbyOptions = [
         {
-            text: "loving zod",
+            text: "loving Koa.js",
             active: true,
         },
         {
-            text: "exercising with volumn cycles",
-            active: false,
-        },
-        {
-            text: "rebuilding my shonen jump api",
+            text: "doing yoga",
             active: true,
         },
         {
-            text: "finally playing the Breath of the Wild",
+            text: "rebuilding my ynab-coinbase sync in go",
+            active: true,
+        },
+        {
+            text: "fighting an addiction to play Vampire Survivors again...",
+            active: true,
+        },
+        {
+            text: "scraping Shopify stores for fun and profit",
             active: true,
         },
     ].filter((option) => option.active) as HobbiesOption[];
