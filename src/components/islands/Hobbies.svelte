@@ -14,10 +14,6 @@
             active: true,
         },
         {
-            text: "rebuilding my ynab-coinbase sync in go",
-            active: true,
-        },
-        {
             text: "fighting an addiction to play another round of Vampire Survivors...",
             active: true,
         },
