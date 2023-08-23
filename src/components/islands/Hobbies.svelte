@@ -6,7 +6,7 @@
 
     let hobbyOptions = [
         {
-            text: "loving Koa.js",
+            text: "learning to program in Go",
             active: true,
         },
         {
