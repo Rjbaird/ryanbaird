@@ -1,14 +1,11 @@
-import mdx from "@astrojs/mdx";
-import netlify from "@astrojs/netlify/functions";
-import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
-
-// https://astro.build/config
+import tailwind from "@astrojs/tailwind";
 import svelte from "@astrojs/svelte";
+
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://bairrya-blog.netlify.app",
-    integrations: [tailwind(), mdx(), svelte()],
-    // adapter: netlify(),
+  site: "https://bairrya-blog.netlify.app",
+  integrations: [tailwind(), svelte(), mdx()]
 });

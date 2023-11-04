@@ -1,6 +1,6 @@
 ---
 import "@fontsource/jetbrains-mono";
-import { Seo } from "astro-seo-meta";
+import { SEO } from "astro-seo";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
@@ -16,18 +16,19 @@ const { title, description, keywords = [""] } = Astro.props;
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <Seo title={title} description={description} keywords={keywords} />
+        <SEO title={title} description={description} />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
     </head>
     <body
-        class="md:max-w-8xl my-3 mx-auto min-h-screen max-w-full bg-[#222222] px-4 py-7 pt-4 pb-8 text-lg text-[#F0F0F0FF] selection:bg-green-400 selection:text-green-900 sm:pb-16 md:px-8 md:pb-16"
+        class="md:max-w-8xl mx-auto my-3 min-h-screen max-w-full bg-[#222222] px-4 py-7 pb-8 pt-4 text-lg text-[#F0F0F0FF] selection:bg-green-400 selection:text-green-900 sm:pb-16 md:px-8 md:pb-16"
     >
         <Header />
         <slot />
         <Footer />
-        <script async defer src="https://scripts.withcabin.com/hello.js"></script>
+        <script async defer src="https://scripts.withcabin.com/hello.js"
+        ></script>
     </body>
 </html>
