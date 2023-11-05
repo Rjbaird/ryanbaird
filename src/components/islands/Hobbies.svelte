@@ -14,7 +14,7 @@
             active: true,
         },
         {
-            text: "fighting an addiction to play another round of Vampire Survivors...",
+            text: "fighting an addiction to play another level in Mario Wonder...",
             active: true,
         },
         {
