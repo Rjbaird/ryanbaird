@@ -10,7 +10,7 @@
             active: true,
         },
         {
-            text: "doing yoga",
+            text: "rucking, lifting, and practicing yoga",
             active: true,
         },
         {
