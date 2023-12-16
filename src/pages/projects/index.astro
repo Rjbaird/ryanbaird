@@ -1,6 +1,5 @@
 ---
-const projectEntries = await getCollection("projects");
-import { getCollection, getEntryBySlug } from "astro:content";
+import { getEntryBySlug } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Prose from "../../layouts/Prose.astro";
 const entry = await getEntryBySlug("blurbs", "projects");
