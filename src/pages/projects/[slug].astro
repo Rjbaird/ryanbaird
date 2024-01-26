@@ -2,8 +2,8 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import dayjs from "dayjs";
 
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Prose from "../../layouts/Prose.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Prose from "@layouts/Prose.astro";
 export async function getStaticPaths() {
     const allProjects = await getCollection("projects");
     return allProjects.map((project) => ({

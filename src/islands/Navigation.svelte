@@ -28,7 +28,7 @@
 
 <header class="flex flex-col items-center pb-4">
   <div class="flex flex-row justify-between w-full">
-    <a href="/" class="text-red-400 text-xl">
+    <a href="/" class="text-red-400 text-xl inline-block align-middle">
       [
       <span class="text-white"> Ryan Baird </span>
       ]

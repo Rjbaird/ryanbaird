@@ -1,9 +1,11 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getCollection, getEntryBySlug } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Prose from "../../layouts/Prose.astro";
 const entry = await getEntryBySlug("blurbs", "projects");
-const { Content } = await entry.render();
+const projectEntries = await getCollection('projects', ({ data }) => {
+  return data.draft !== true;
+});
+
 ---
 
 <BaseLayout 
@@ -14,24 +16,34 @@ const { Content } = await entry.render();
     <h1 class="pb-2 text-xl text-red-400">
         {entry.data.title}
     </h1>
-    <Prose>
+    <!-- <Prose>
         <Content />
-    </Prose>
-    <!-- <ul>
-        {
-            projectEntries.map((projectEntry, i) => (
-                <li class="flex text-sm md:text-base">
-                    <a href={`/projects/${projectEntry.slug}`}>
-                        <span class="text-gray-200">#{i + 1}</span>
-                        <span class="text-blue-400 hover:text-orange-400">
-                            {projectEntry.data.title}
-                        </span>
-                        <span class="hidden md:inline-block text-xs text-gray-200">
-                            -{projectEntry.data.description}
-                        </span>
-                    </a>
-                </li>
-            ))
-        }
-    </ul> -->
+    </Prose> -->
+    <div class="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+    {projectEntries.map(project => (
+      <article class="group flex flex-col items-start justify-between">
+        <a href={`projects/${project.slug}`}>
+          <div class="relative w-full group-hover:scale-110 transition-transform">
+            <img src={project.data.img} alt={`${project.data.title} header image`} class="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1]"/>
+            <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+          </div>
+          <div class="max-w-xl">
+              <div class="mt-8 flex items-center gap-x-4 text-xs">
+                <span class="text-white text-sm underline decoration-red-400">{project.data.category}</span>
+                {project.data.tags.map(tag => (
+                    <p class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{tag}</p>
+                ))}
+              </div>
+              <div class="group relative">
+                <h3 class="mt-3 text-lg font-semibold leading-6 text-blue-400">
+                    <span class="absolute inset-0"></span>
+                    {project.data.title}
+                </h3>
+                <p class="mt-5 line-clamp-3 text-sm leading-6 text-white">{project.data.description}</p>
+              </div>
+          </div>
+        </a>
+      </article>
+      ))}
+    </div>
 </BaseLayout>
