@@ -1,0 +1,120 @@
+<script lang="ts">
+  const navlinks = [
+    {
+      name: "Blog",
+      url: "/blog",
+      active: false,
+    },
+    {
+      name: "Projects",
+      url: "/projects",
+      active: true,
+    },
+    {
+      name: "Work",
+      url: "/work",
+      active: true,
+    },
+    {
+      name: "About",
+      url: "/about",
+      active: false,
+    },
+  ];
+
+  let isNavOpen = false;
+  const toggleNav = () => (isNavOpen = !isNavOpen);
+</script>
+
+<header class="flex flex-col items-center pb-4">
+  <div class="flex flex-row justify-between w-full">
+    <a href="/" class="text-red-400 text-xl">
+      [
+      <span class="text-white"> Ryan Baird </span>
+      ]
+    </a>
+
+    <button on:click={toggleNav} class="md:hidden">
+      {#if isNavOpen}
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 16 16"
+            ><path
+              fill="currentColor"
+              d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326a.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275a.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018a.751.751 0 0 1-.018-1.042L6.94 8L3.72 4.78a.75.75 0 0 1 0-1.06"
+            /></svg
+          >
+        </span>
+      {:else}
+        <span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 16 16"
+            ><path
+              fill="currentColor"
+              d="M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75m0 5A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75M1.75 12h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5"
+            /></svg
+          >
+        </span>
+      {/if}
+    </button>
+    <!-- Desktop Nav -->
+    <nav
+      aria-label="primary menu"
+      class="hidden md:flex space-x-2 items-center"
+    >
+      <ul class="flex flex-row list-none space-x-4">
+        {#each navlinks as link}
+          {#if link.active}
+            <li>
+              <a
+                href={link.url}
+                class="text-white uppercase text-base tracking-widest hover:text-red-400"
+                >{link.name}
+              </a>
+            </li>
+          {/if}
+        {/each}
+      </ul>
+      <a
+        href="/contact"
+        role="button"
+        class="px-2 py-1 border border-red-400 rounded-base text-white uppercase text-base tracking-widest rounded-md"
+        >Contact
+      </a>
+    </nav>
+  </div>
+  <!-- Mobile Menu Nav -->
+  {#if isNavOpen}
+    <nav
+      aria-label="mobile menu"
+      class="md:hidden pt-2 w-full text-center items-center space-y-4"
+    >
+      <ul class="space-y-2">
+        {#each navlinks as link}
+          {#if link.active}
+            <li>
+              <a
+                href={link.url}
+                class="text-white uppercase text-base tracking-widest hover:text-red-400"
+                >{link.name}
+              </a>
+            </li>
+          {/if}
+        {/each}
+        <li>
+          <a
+            href="/contact"
+            class="px-2 py-1 underline decoration-solid decoration-2 underline-offset-4 decoration-red-400 text-white hover:text-red-400 uppercase text-base tracking-widest"
+            >Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+  {/if}
+</header>

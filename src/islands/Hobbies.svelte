@@ -19,7 +19,7 @@
         },
         {
             text: "scraping Shopify stores for fun and profit",
-            active: true,
+            active: false,
         },
     ].filter((option) => option.active) as HobbiesOption[];
 
@@ -35,5 +35,5 @@
     }
 </script>
 
-<span class="text-sm lowercase text-orange-400">{hobbyOptions[index].text}</span
+<span class="text-base lowercase text-orange-400">{hobbyOptions[index].text}</span
 >

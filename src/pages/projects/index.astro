@@ -6,7 +6,11 @@ const entry = await getEntryBySlug("blurbs", "projects");
 const { Content } = await entry.render();
 ---
 
-<BaseLayout title="Ryan's Projects" description="">
+<BaseLayout 
+    title="Ryan's Projects" 
+    description=""
+    keywords={[]}
+>
     <h1 class="pb-2 text-xl text-red-400">
         {entry.data.title}
     </h1>

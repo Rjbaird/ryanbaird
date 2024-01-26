@@ -1,16 +1,18 @@
 ---
 import "@fontsource/jetbrains-mono";
 import { SEO } from "astro-seo";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import { ViewTransitions } from 'astro:transitions';
+import CabinAnalytics from "@components/CabinAnalytics.astro";
+import Footer from "@components/Footer.astro";
+import Navigation from "@islands/Navigation.svelte";
 
 export interface Props {
     title: string;
     description: string;
-    keywords?: string[];
+    keywords: string[];
 }
 
-const { title, description, keywords = [""] } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -21,14 +23,17 @@ const { title, description, keywords = [""] } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
+        <ViewTransitions />
     </head>
-    <body
-        class="md:max-w-8xl mx-auto my-3 min-h-screen max-w-full bg-[#222222] px-4 py-7 pb-8 pt-4 text-lg text-[#F0F0F0FF] selection:bg-green-400 selection:text-green-900 sm:pb-16 md:px-8 md:pb-16"
+    <body 
+        class="bg-[#222222] text-[#F0F0F0FF] mx-auto max-w-7xl text-lg px-4 sm:px-6 lg:px-8 pt-6"
     >
-        <Header />
-        <slot />
-        <Footer />
-        <script async defer src="https://scripts.withcabin.com/hello.js"
-        ></script>
+        <div class="mx-auto max-w-4xl min-h-screen pb-8">
+            <!-- <Header /> -->
+            <Navigation client:load/>
+            <slot />
+            <Footer />
+            <CabinAnalytics />
+        </div>
     </body>
 </html>

@@ -2,25 +2,29 @@
 import { Icon } from "astro-icon";
 const today = new Date();
 const svgBaseClass = `w-6 h-6 fill-current stroke-2`;
-const icons = [
+const iconLinks = [
+    {
+        name: "Contact",
+        handle: "simple-icons:gmail",
+        color: `${svgBaseClass} hover:text-[#EA4335]`,
+        href: "/contact",
+        aria: "Get in touch"
+    },
     {
         name: "Github",
         handle: "simple-icons:github",
         color: `${svgBaseClass} hover:text-[#ffffff]`,
-        link: "https://github.com/Rjbaird",
+        href: "https://github.com/Rjbaird",
+        aria: "Check out my Github profile"
     },
     {
         name: "Linkedin",
         handle: "simple-icons:linkedin",
         color: `${svgBaseClass} hover:text-[#0A66C2]`,
-        link: "https://www.linkedin.com/in/bairdryan/",
+        href: "https://www.linkedin.com/in/bairdryan/",
+        aria: "Check out my Linkedin profile"
     },
-    // {
-    //     name: "RSS",
-    //     handle: "simple-icons:rss",
-    //     color: `${svgBaseClass} hover:text-[#FFA500]`,
-    //     link: "https://ryanbaird.com/rss.xml",
-    // },
+
 ];
 ---
 
@@ -34,15 +38,16 @@ const icons = [
         </div>
         <div class="flex justify-center space-x-6 md:order-2">
             {
-                icons.map((icon) => (
+                iconLinks.map((link) => (
                     <a
-                        href={icon.link}
-                        target="_blank"
+                        href={link.href}
+                        target={link.href == "/contact" ? "_self" : "_blank"}
                         rel="noopener noreferrer"
+                        aria-label=""
                         class="text-white hover:text-gray-300"
                     >
-                        <span class="sr-only">{icon.name}</span>
-                        <Icon class={icon.color} name={icon.handle} />
+                        <span class="sr-only">{link.name}</span>
+                        <Icon class={link.color} name={link.handle} />
                     </a>
                 ))
             }

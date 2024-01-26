@@ -1,13 +1,15 @@
 ---
 import { getEntryBySlug } from "astro:content";
+import ContactForm from "../../components/ContactForm.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Prose from "../../layouts/Prose.astro";
-import ContactForm from "../../components/ContactForm.astro";
 const entry = await getEntryBySlug("blurbs", "contact");
 const { Content } = await entry.render();
 ---
 
-<BaseLayout title="Contact Me" description={entry.data.description}>
+<BaseLayout title="Contact Me" description={entry.data.description}
+keywords={[]}
+>
     <h1 class="pb-2 text-xl text-red-400">Contact Me</h1>
     <Prose>
         <Content />

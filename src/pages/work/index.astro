@@ -6,13 +6,9 @@ const entry = await getEntryBySlug("blurbs", "work");
 const { Content } = await entry.render();
 ---
 
-<BaseLayout title="Ryan's Work and Career" description={entry.data.description}>
+<BaseLayout title={entry.data.title} description={entry.data.description} keywords={[]}>
     <h1 class="pb-2 text-xl text-red-400">Work and Career</h1>
     <Prose>
         <Content />
     </Prose>
-    <!-- <a
-        href="./assets/docs/Ryan Baird - Dev - 2023.pdf"
-        download="Ryan Baird PDF Resume">Download</a
-    > -->
 </BaseLayout>
