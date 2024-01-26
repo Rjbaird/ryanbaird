@@ -28,7 +28,25 @@ const projectCollection = defineCollection({
         .max(160, "Keep description under 160 characters for better SEO"),
       img: z.string(),
       draft: z.boolean().default(true),
-      tags: z.array(z.string()),
+      tags: z.array(
+        z.enum([
+          "html5",
+          "css3",
+          "javascript",
+          "react",
+          "astro",
+          "shopify",
+          "svelte",
+          "go",
+          "vuedotjs",
+          "redis",
+          "htmx",
+          "gin",
+          "solid",
+          "typescript",
+          "coinbase",
+        ])
+      ),
       category: z
         .enum(["app", "api", "script", "site", "e-commerce"])
         .default("site"),

@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon";
+import techStack from '../../public/data/tech.json';
+const { name, handle, href, color, aria} = Astro.props
+const getBrandColor = (handle: string) => {
+    const tech = techStack.data.filter((tech) => tech.handle === handle);
+    return tech[0].color;
+}
+
+const iconHandle = `simple-icons:${handle}`;
+const brandColor = getBrandColor(handle);
+const svgClass = `w-6 h-6 fill-current stroke-2 hover:text-[${brandColor}]`;
+---
+
+<a
+    href={href}
+    target={href == "/contact" ? "_self" : "_blank"}
+    rel="noopener noreferrer"
+    aria-label={aria}
+    class="text-white"
+    >
+    <span class="sr-only">{name}</span>
+    <Icon class={svgClass} name={iconHandle} />
+</a>
