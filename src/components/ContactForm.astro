@@ -20,8 +20,15 @@
         name="email"
         id="email"
     />
-    <label for="message">What can I help you with:</label>
-    <textarea required class="text-gray-700" name="message" id="message"
+    <label for="topic">What can I help you with:</label>
+    <select name="topic" id="topic" class="text-gray-700">
+        <option value="general">General</option>
+        <option value="consulting">Site Speed Audit</option>
+        <option value="speaking">Work</option>
+        <option value="other">Other</option>
+    </select>
+    <label for="message">Message:</label>
+    <textarea required class="text-gray-700" name="message" id="message" rows="5"
     ></textarea>
-    <button class="border text-red-400" type="submit">Submit</button>
+    <button class="border text-red-400 py-3 hover:bg-red-500 hover:text-white transition-colors" type="submit">Submit</button>
 </form>
