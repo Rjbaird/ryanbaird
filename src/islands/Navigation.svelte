@@ -30,7 +30,11 @@
   <div class="flex flex-row justify-between w-full">
     <a href="/" class="text-red-400 text-xl inline-block align-middle">
       [
-      <span class="text-white"> Ryan Baird </span>
+      <span
+        class="text-white hover:underline decoration-red-400 decoration-solid decoration-2 underline-offset-4"
+      >
+        Ryan Baird
+      </span>
       ]
     </a>
 
