@@ -12,12 +12,12 @@
     "update": "npx @astrojs/upgrade"
   },
   "dependencies": {
-    "@astrojs/mdx": "^2.1.1",
+    "@astrojs/mdx": "^2.2.3",
     "@astrojs/rss": "^4.0.5",
-    "@astrojs/svelte": "^5.2.0",
+    "@astrojs/svelte": "^5.3.0",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource/jetbrains-mono": "^4.5.12",
-    "astro": "^4.4.15",
+    "astro": "^4.5.15",
     "astro-icon": "^0.8.0",
     "astro-seo": "^0.8.0",
     "dayjs": "^1.11.7",
