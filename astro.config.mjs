@@ -11,5 +11,10 @@ export default defineConfig({
   integrations: [tailwind(), svelte(), mdx(), alpinejs()],
   prefetch: {
     prefetchAll: true
-  }
+  },
+  // output: "hybrid",
+  // adapter: netlify(),
+  redirects: {
+    "/admin": "/admin/index.html",
+  },
 });
