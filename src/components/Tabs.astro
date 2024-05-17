@@ -1,0 +1,14 @@
+---
+
+---
+
+<script is:inline>
+    document.addEventListener("alpine:init", () => {
+      window.Alpine.data("slideover", () => ({
+        slideOverOpen: false,
+        toggle() {
+          this.slideOverOpen = !this.slideOverOpen;
+        },
+      }));
+    });
+</script>
