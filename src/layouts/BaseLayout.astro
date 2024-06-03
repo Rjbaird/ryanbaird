@@ -1,8 +1,8 @@
 ---
 import CabinAnalytics from "@components/CabinAnalytics.astro";
 import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
 import "@fontsource/jetbrains-mono";
-import Navigation from "@islands/Navigation.svelte";
 import { SEO } from "astro-seo";
 import { ViewTransitions } from "astro:transitions";
 export interface Props {
@@ -30,8 +30,7 @@ const { title, description } = Astro.props;
     class="bg-[#222222] text-[#F0F0F0FF] mx-auto max-w-7xl text-lg px-4 sm:px-6 lg:px-8 pt-6"
   >
     <div class="mx-auto max-w-4xl min-h-screen pb-8">
-      <!-- <Header /> -->
-      <Navigation client:load />
+      <Header />
       <slot />
       <Footer />
       <CabinAnalytics />
