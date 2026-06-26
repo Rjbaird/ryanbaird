@@ -23,7 +23,7 @@ app.use("*", async (c, next) => {
       "form-action 'self'",
       "img-src 'self' data: https:",
       "style-src 'self' 'unsafe-inline'",
-      "script-src 'self' 'unsafe-inline'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
       "font-src 'self' data:",
       "connect-src 'self' ws: wss:",
     ].join("; ")
