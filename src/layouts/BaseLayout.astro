@@ -66,7 +66,7 @@ const jsonLd = structuredData
         <a href="/projects/">Projects</a>
         <a href="/blog/">Blog</a>
         <a href="/work/">Work</a>
-        <a href="/ryan-baird-resume.pdf">Resume</a>
+        <a href="/resume/">Resume</a>
       </nav>
     </header>
     <main id="content">
@@ -294,6 +294,56 @@ const jsonLd = structuredData
     margin-top: 0.35rem;
   }
 
+  .qr-tool {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .field-label {
+    display: block;
+    color: var(--accent-strong);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  select {
+    width: min(100%, 360px);
+    min-height: 44px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: white;
+    color: var(--ink);
+    font: inherit;
+    padding: 0.55rem 0.75rem;
+  }
+
+  .qr-result {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+    padding: 1rem;
+  }
+
+  .qr-preview {
+    display: grid;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: white;
+    padding: 0.75rem;
+  }
+
+  .qr-preview img {
+    width: 100%;
+  }
+
   .project-image {
     display: block;
     background: var(--soft);
@@ -406,6 +456,10 @@ const jsonLd = structuredData
     }
 
     .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .qr-result {
       grid-template-columns: 1fr;
     }
 

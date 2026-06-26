@@ -33,6 +33,16 @@ export function formatResumeRange(entry: Pick<Employment | Education, "startDate
   return `${formatResumeDate(entry.startDate)} - ${formatResumeDate(entry.endDate)}`;
 }
 
+export function formatPhone(value: string) {
+  const digits = value.replace(/\D/g, "");
+
+  if (digits.length !== 10) {
+    return value;
+  }
+
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+}
+
 export const topSkills = Array.from(
   new Set(activeEmployment.flatMap((entry) => entry.skills))
 ).slice(0, 12);

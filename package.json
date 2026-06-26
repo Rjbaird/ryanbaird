@@ -10,6 +10,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "deploy": "astro build && wrangler deploy",
+    "generate:qr": "tsx scripts/generate-qr.ts",
+    "generate:resume": "tsx scripts/generate-resume.ts",
+    "generate:assets": "npm run generate:qr && npm run generate:resume",
     "astro": "astro"
   },
   "dependencies": {
@@ -21,6 +24,12 @@
     "hono": "^4.12.27",
     "node-addon-api": "^8.8.0",
     "node-gyp": "^12.4.0",
+    "qrcode": "^1.5.4",
     "wrangler": "^4.105.0"
+  },
+  "devDependencies": {
+    "@types/qrcode": "^1.5.6",
+    "playwright": "^1.61.1",
+    "tsx": "^4.22.4"
   }
 }
