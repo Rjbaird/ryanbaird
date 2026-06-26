@@ -4,30 +4,31 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import profilePic from "../assets/images/profile_pic.jpg";
+import { activeEmployment, careerMetadata, formatResumeRange, topSkills } from "../lib/resume";
 
 const projects = (await getCollection("projects"))
   .filter((project) => !project.data.draft)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
 
-const jobs = (await getCollection("jobs"))
-  .filter((job) => job.data.display)
-  .slice(-3)
-  .reverse();
+const jobs = activeEmployment.slice(0, 3);
 ---
 
-<BaseLayout description="Ryan Baird is a developer building practical web tools, commerce workflows, and content-driven sites.">
+<BaseLayout description={`Ryan Baird is a ${careerMetadata.title.toLowerCase()} ${careerMetadata.headline}`}>
   <section class="section hero">
     <div>
       <p class="eyebrow">Developer portfolio</p>
       <h1>Ryan Baird</h1>
       <p>
-        I build practical web tools, commerce workflows, and fast content sites with a bias
-        toward simple systems that are easy to maintain.
+        {careerMetadata.title} {careerMetadata.headline} I build practical web tools,
+        commerce workflows, and internal systems with a bias toward maintainable software.
       </p>
       <div class="button-row">
         <a class="button" href="/projects/">View projects</a>
         <a class="button secondary" href="/ryan-baird-resume.pdf">Resume</a>
+      </div>
+      <div class="tag-row hero-skills" aria-label="Top skills">
+        {topSkills.slice(0, 6).map((skill) => <span>{skill}</span>)}
       </div>
     </div>
     <div class="hero-portrait">
@@ -48,16 +49,19 @@ const jobs = (await getCollection("jobs"))
   <section class="section split">
     <div>
       <p class="eyebrow">Recent work</p>
-      <h2>Experience across product, operations, and web development.</h2>
-      <p class="meta">Old resume entries are preserved as content collections so they can be edited without touching page code.</p>
+      <h2>Experience across site operations, e-commerce, internal tools, and web development.</h2>
+      <p class="meta">Work history is rendered from the resume JSON files in <code>src/content/resume</code>.</p>
     </div>
     <div class="grid">
       {jobs.map((job) => (
         <article class="job-card">
-          <p class="eyebrow">{job.data.company}</p>
-          <h2>{job.data.title}</h2>
-          <p>{job.data.location}</p>
-          <p class="meta">{job.data.startDate} - {job.data.endDate}</p>
+          <p class="eyebrow">{job.company}</p>
+          <h2>{job.title}</h2>
+          <p>{job.location} · {job.type}</p>
+          <p class="meta">{formatResumeRange(job)}</p>
+          <div class="tag-row">
+            {job.skills.slice(0, 4).map((skill) => <span>{skill}</span>)}
+          </div>
         </article>
       ))}
     </div>

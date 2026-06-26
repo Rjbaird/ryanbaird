@@ -1,41 +1,73 @@
 ---
-import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-
-const jobs = (await getCollection("jobs")).filter((job) => job.data.display).reverse();
-const renderedJobs = await Promise.all(
-  jobs.map(async (job) => ({ job, Content: (await render(job)).Content }))
-);
+import {
+  activeEmployment,
+  careerMetadata,
+  educationEntries,
+  formatResumeRange,
+  topSkills,
+} from "../../lib/resume";
 ---
 
-<BaseLayout title="Work" description="Work history and experience for Ryan Baird.">
+<BaseLayout title="Work" description={`Work history and experience for Ryan Baird, ${careerMetadata.title}.`}>
   <section class="section compact">
     <div class="page-heading">
       <p class="eyebrow">Experience</p>
       <h1>Work</h1>
-      <p>A practical mix of software engineering, e-commerce operations, consulting, and customer-facing product work.</p>
+      <p>{careerMetadata.title} {careerMetadata.headline}</p>
     </div>
   </section>
+
   <section class="section compact">
     <div class="split">
-      <div>
+      <aside>
         <h2>Resume</h2>
-        <p class="meta">Download a copy or use the content entries here as the source of truth.</p>
+        <p class="meta">
+          Based in {careerMetadata.location}. This page is rendered from the resume JSON files
+          in <code>src/content/resume</code>.
+        </p>
         <a class="button" href="/ryan-baird-resume.pdf">Download PDF</a>
-      </div>
-      <div>
-        {renderedJobs.map(({ job, Content }) => (
+
+        <h2>Top Skills</h2>
+        <div class="tag-row">
+          {topSkills.map((skill) => <span>{skill}</span>)}
+        </div>
+      </aside>
+
+      <div class="resume-list">
+        {activeEmployment.map((job) => (
           <article class="job-card">
-            <p class="eyebrow">{job.data.company}</p>
-            <h2>{job.data.title}</h2>
-            <p>{job.data.location}</p>
-            <p class="meta">{job.data.startDate} - {job.data.endDate}</p>
-            <div class="prose">
-              <Content />
+            <p class="eyebrow">{job.company}</p>
+            <h2>{job.title}</h2>
+            <p class="meta">{job.location} · {job.type} · {formatResumeRange(job)}</p>
+            <ul>
+              {job.highlights.map((highlight) => <li>{highlight}</li>)}
+            </ul>
+            <div class="tag-row">
+              {job.skills.map((skill) => <span>{skill}</span>)}
             </div>
           </article>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="section compact">
+    <div class="section-heading">
+      <h2>Education</h2>
+    </div>
+    <div class="grid">
+      {educationEntries.map((entry) => (
+        <article class="job-card">
+          <p class="eyebrow">{entry.location}</p>
+          <h2>{entry.name}</h2>
+          <p>{entry.degree}</p>
+          <p class="meta">{formatResumeRange(entry)}</p>
+          <ul>
+            {entry.highlights.map((highlight) => <li>{highlight}</li>)}
+          </ul>
+        </article>
+      ))}
     </div>
   </section>
 </BaseLayout>

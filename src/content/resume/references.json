@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Austin Jones",
+    "slug": "austin-jones",
+    "title": "Store Manager",
+    "company": "T-Mobile",
+    "relationship": "Manager",
+    "notes": ""
+  },
+  {
+    "name": "Ryan Lauer",
+    "slug": "ryan-lauer",
+    "title": "Senior Software Engineer",
+    "company": "Self Esteem Brands",
+    "relationship": "Mentor",
+    "notes": ""
+  },
+  {
+    "name": "Kari Warwick",
+    "slug": "kari-warwick",
+    "title": "Customer Experience Manager",
+    "company": "PROOZY",
+    "email": "kari@proozy.com",
+    "relationship": "Manager",
+    "notes": ""
+  },
+  {
+    "name": "Matt Carlson",
+    "slug": "matt-carlson",
+    "title": "Senior Site Operations Manager",
+    "company": "Bluestem Brands",
+    "email": "mdcarlson25@yahoo.com",
+    "phone": "9525949385",
+    "relationship": "Manager",
+    "notes": ""
+  }
+]
