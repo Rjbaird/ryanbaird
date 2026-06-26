@@ -1,0 +1,40 @@
+---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const post = await getEntry("blog", Astro.params.slug ?? "");
+
+if (!post || post.data.draft) {
+  Astro.response.status = 404;
+  return Astro.rewrite("/404");
+}
+
+const { Content } = await render(post);
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  type="article"
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.data.title,
+    description: post.data.description,
+    url: new URL(`/blog/${post.id}/`, Astro.site).toString(),
+    datePublished: post.data.pubDate.toISOString(),
+    dateModified: post.data.updatedDate?.toISOString(),
+    author: {
+      "@type": "Person",
+      name: "Ryan Baird",
+      url: Astro.site?.toString(),
+    },
+  }}
+>
+  <article class="section prose">
+    <p class="eyebrow">{post.data.pubDate.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</p>
+    <h1>{post.data.title}</h1>
+    <p class="meta">{post.data.description}</p>
+    <Content />
+  </article>
+</BaseLayout>

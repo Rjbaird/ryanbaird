@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Privacy"
+  description="Privacy notes for ryanbaird.com."
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Privacy",
+    url: "https://ryanbaird.com/privacy/",
+  }}
+>
+  <section class="section prose">
+    <p class="eyebrow">Privacy</p>
+    <h1>Privacy</h1>
+    <p>
+      This site is a personal portfolio and blog. It is designed to collect as little
+      information as possible while still working reliably.
+    </p>
+
+    <h2>Server Logs</h2>
+    <p>
+      The site runs on Cloudflare Workers. Cloudflare may process standard request
+      information such as IP address, user agent, requested URL, timestamp, and basic
+      security signals to deliver the site and protect the service.
+    </p>
+
+    <h2>Analytics</h2>
+    <p>
+      There is no first-party analytics script installed right now. If analytics are added,
+      the preference is cookieless, privacy-respecting measurement.
+    </p>
+
+    <h2>Cookies</h2>
+    <p>
+      This site does not intentionally set tracking cookies. Some platform-level behavior may
+      change if interactive features are added later.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      If you contact me directly, I will use the information you provide to respond to that
+      message. I do not sell personal information.
+    </p>
+  </section>
+</BaseLayout>

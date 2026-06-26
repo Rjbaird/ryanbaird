@@ -1,14 +1,41 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Prose from "../../layouts/Prose.astro";
-const entry = await getEntryBySlug("blurbs", "work");
-const { Content } = await entry.render();
+
+const jobs = (await getCollection("jobs")).filter((job) => job.data.display).reverse();
+const renderedJobs = await Promise.all(
+  jobs.map(async (job) => ({ job, Content: (await render(job)).Content }))
+);
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description} keywords={[]}>
-    <h1 class="pb-2 text-xl text-red-400">Work with Me</h1>
-    <Prose>
-        <Content />
-    </Prose>
+<BaseLayout title="Work" description="Work history and experience for Ryan Baird.">
+  <section class="section compact">
+    <div class="page-heading">
+      <p class="eyebrow">Experience</p>
+      <h1>Work</h1>
+      <p>A practical mix of software engineering, e-commerce operations, consulting, and customer-facing product work.</p>
+    </div>
+  </section>
+  <section class="section compact">
+    <div class="split">
+      <div>
+        <h2>Resume</h2>
+        <p class="meta">Download a copy or use the content entries here as the source of truth.</p>
+        <a class="button" href="/ryan-baird-resume.pdf">Download PDF</a>
+      </div>
+      <div>
+        {renderedJobs.map(({ job, Content }) => (
+          <article class="job-card">
+            <p class="eyebrow">{job.data.company}</p>
+            <h2>{job.data.title}</h2>
+            <p>{job.data.location}</p>
+            <p class="meta">{job.data.startDate} - {job.data.endDate}</p>
+            <div class="prose">
+              <Content />
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 </BaseLayout>

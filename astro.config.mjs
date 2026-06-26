@@ -1,20 +1,15 @@
-import mdx from "@astrojs/mdx";
-import svelte from "@astrojs/svelte";
-import tailwind from "@astrojs/tailwind";
-import { defineConfig } from "astro/config";
-
-import alpinejs from "@astrojs/alpinejs";
+// @ts-check
+import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import cloudflare from '@astrojs/cloudflare';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://bairrya-blog.netlify.app",
-  integrations: [tailwind(), svelte(), mdx(), alpinejs()],
-  prefetch: {
-    prefetchAll: true
-  },
-  // output: "hybrid",
-  // adapter: netlify(),
-  redirects: {
-    "/admin": "/admin/index.html",
-  },
+  site: 'https://ryanbaird.com',
+  integrations: [mdx(), sitemap()],
+  output: 'server',
+  adapter: cloudflare({
+    imageService: 'compile',
+  }),
 });
