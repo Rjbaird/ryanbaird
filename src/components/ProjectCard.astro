@@ -1,0 +1,18 @@
+---
+const { project } = Astro.props;
+const imagePath = `/assets/${project.data.img.split("/").pop()}`;
+---
+
+<article class="project-card">
+  <a class="project-image" href={`/projects/${project.id}/`} aria-label={`View ${project.data.title}`}>
+    <img src={imagePath} alt="" loading="lazy" />
+  </a>
+  <div class="project-copy">
+    <p class="eyebrow">{project.data.category}</p>
+    <h3><a href={`/projects/${project.id}/`}>{project.data.title}</a></h3>
+    <p>{project.data.description}</p>
+    <div class="tag-row" aria-label="Technologies">
+      {project.data.tags.map((tag) => <span>{tag}</span>)}
+    </div>
+  </div>
+</article>

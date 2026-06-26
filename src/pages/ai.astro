@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="AI"
+  description="How Ryan Baird uses AI in work, writing, and software development."
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "AI",
+    url: "https://ryanbaird.com/ai/",
+  }}
+>
+  <section class="section prose">
+    <p class="eyebrow">AI</p>
+    <h1>AI</h1>
+    <p>
+      This page is reserved for how I use AI in my work: what I use it for, where I avoid it,
+      and how I think about attribution, review, privacy, and responsibility.
+    </p>
+
+    <h2>Working Notes</h2>
+    <p>
+      The default posture is that AI can help draft, explore, refactor, test, summarize, and
+      document work, but it does not replace judgment. Code, writing, and decisions still need
+      human review before they represent my work.
+    </p>
+
+    <h2>Boundaries</h2>
+    <p>
+      I do not want private, sensitive, or client-confidential material treated as casual model
+      input. When AI tools are useful, the inputs and outputs should be appropriate for the
+      context and reviewed before use.
+    </p>
+
+    <section class="datastar-note" data-signals:details-open="false">
+      <button
+        class="button secondary"
+        type="button"
+        data-on:click="$detailsOpen = !$detailsOpen"
+        data-attr:aria-expanded="$detailsOpen.toString()"
+        aria-controls="ai-detail-note"
+        aria-expanded="false"
+      >
+        Toggle implementation note
+      </button>
+      <div id="ai-detail-note" data-show="$detailsOpen">
+        <p>
+          This disclosure uses Datastar attributes for client-side reactivity. The page still
+          renders as normal HTML first, and the interaction is a progressive enhancement.
+        </p>
+      </div>
+    </section>
+  </section>
+</BaseLayout>

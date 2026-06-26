@@ -1,0 +1,178 @@
+[
+  {
+    "title": "Site Operations Specialist ",
+    "slug": "BLST",
+    "active": true,
+    "company": "Bluestem Brands",
+    "location": "Eden Prairie, MN",
+    "startDate": "2024-03",
+    "endDate": "2025-12",
+    "contact": "1-800-208-2500",
+    "type": "Hybrid",
+    "skills": [
+      "Go",
+      "Playwright",
+      "Adobe Analytics",
+      "Looker Studio",
+      "A/B Testing"
+    ],
+    "highlights": [
+      "Managed site experiences, content, promotions and analytics across the Bluestem Brands portfolio.",
+      "Translated UI designs into responsive pages using modern HTML, CSS and JQuery.",
+      "Implemented A/B testing and multivariate testing to optimize user experience and increase conversion rates. Conducted data analysis using Adobe Analytics and Looker Studio to track user behavior and site performance.",
+      "Collaborated with cross-functional teams to develop and maintain site features, including product pages, search functionality and checkout processes.",
+      "Developed internal monitoring applications using Go and Playwright to monitor broken images, links and product pages."
+    ],
+    "reasonForLeaving": "Companywide layoffs and company closure"
+  },
+  {
+    "title": "Development Consultant",
+    "slug": "TREX",
+    "active": true,
+    "company": "Trexin Consulting",
+    "location": "Minnetonka, MN",
+    "startDate": "2023-10",
+    "endDate": "2023-12",
+    "contact": "info@trexin.com",
+    "type": "Hybrid",
+    "skills": ["TypeScript", "Git", "Consulting", "Client Relations"],
+    "highlights": [
+      "Developed custom Salesforce-based ERP systems with in-house software teams using TypeScript, SQL and Gitlab.",
+      "Collaborated with remote consulting teams to resolve client issues and provide technical solutions to business problems."
+    ],
+    "reasonForLeaving": "Contract ended"
+  },
+  {
+    "title": "Software Engineer",
+    "slug": "PRZY",
+    "active": true,
+    "company": "Proozy",
+    "location": "Edina, MN",
+    "startDate": "2022-02",
+    "endDate": "2023-02",
+    "contact": "support@proozy.com",
+    "type": "Hybrid",
+    "skills": [
+      "Vue.js",
+      "GraphQL",
+      "Shopify Plus",
+      "Liquid",
+      "Google Tag Manager",
+      "Docker",
+      "AWS"
+    ],
+    "highlights": [
+      "Handled e-commerce operations, including user administration, third-party application integrations and internal business service development across the Proozy's Shopify Plus online portfolio.",
+      "Developed front-end solutions using Liquid, Vue.js and the Shopify GitHub CI/CD Integration. Increased site performance by 50% by implementing responsive images and applying JavaScript best practices.",
+      "Maintained API integrations for third-party vendors hosted on cloud infrastructure with Node.js, Docker and Amazon Web Services.",
+      "Implemented Google Tag Manager and Google Analytics to track user behavior and site performance.",
+      "Designed a custom inventory and order data tagging system to improve product planning, merchandising and warehouse efficiency with the TypeScript, Node.js, PostgreSQL and the Shopify GraphQL API."
+    ],
+    "reasonForLeaving": "Companywide layoffs and downsizing"
+  },
+  {
+    "title": "Freelance Developer",
+    "slug": "RJB",
+    "active": true,
+    "company": "Self Employed",
+    "location": "Minneapolis, MN",
+    "startDate": "2020-09",
+    "endDate": "2055-12",
+    "contact": "ryanjohnbaird@gmail.com",
+    "type": "Remote",
+    "skills": [
+      "Google Apps Script",
+      "Google Sheets",
+      "TailwindCSS",
+      "REST",
+      "JSON"
+    ],
+    "highlights": [
+      "Support Shopify stores with app integration, theme customizations, data/intentory management",
+      "Designed custom applications, APIs and UIs with Google Apps Script and TailwindCSS.",
+      "Convert Google Sheets data into RESTful API endpoints.",
+      "Collected and transformed JSON data into spreadsheets tables for real time data tracking."
+    ],
+    "reasonForLeaving": "N/A"
+  },
+  {
+    "title": "Mobile Expert",
+    "slug": "TMOB",
+    "active": true,
+    "company": "TMobile",
+    "location": "St. Louis Park, MN",
+    "startDate": "2019-06",
+    "endDate": "2021-11",
+    "contact": "hr@t-mobile.com",
+    "type": "Onsite",
+    "skills": ["Sales", "Customer Service", "Billing"],
+    "highlights": [
+      "Managed sales and support for T-Mobile devices/services based on unique customer needs.",
+      "Collaborated with peers, management and specialty leaders across multiple stores to resolve billing issues, achieve sales goals and improve business processes."
+    ],
+    "reasonForLeaving": "Persue career in software development"
+  },
+  {
+    "title": "Inside Sales Representative",
+    "slug": "LTIS",
+    "active": false,
+    "company": "LifeTouch",
+    "location": "Eden Prairie, MN",
+    "startDate": "2018-10",
+    "endDate": "2019-03",
+    "contact": "1-800-736-4753",
+    "type": "Onsite",
+    "skills": ["Sales", "Lead Qualification", "Lead Generation", "Salesforce"],
+    "highlights": [
+      "Qualify leads for and strategize with outside Sales Professionals, making over 50 prospect calls per day to schools and districts across North America.",
+      "Complete follow-up outbound calls to schedule service presentations."
+    ],
+    "reasonForLeaving": ""
+  },
+  {
+    "title": "Talent Acquisition Specialist",
+    "slug": "LTTA",
+    "active": false,
+    "company": "LifeTouch",
+    "location": "Eden Prairie, MN",
+    "startDate": "2018-06",
+    "endDate": "2018-09",
+    "contact": "1-800-736-4753",
+    "type": "Onsite",
+    "skills": [
+      "Recruiting",
+      "Interviewing",
+      "Onboarding",
+      "Applicant Tracking Systems"
+    ],
+    "highlights": [
+      "Prepare and post photographer job advertisements through internal ATS and on external platforms, including sponsored social media campaigns.",
+      "Conducted phone interviews for qualified candidates and scheduled in-person interviews for studio managers across the US."
+    ],
+    "reasonForLeaving": "Move to Sales department"
+  },
+  {
+    "title": "Lead Sale Consultant",
+    "slug": "BBYM",
+    "active": false,
+    "company": "Best Buy",
+    "location": "Sioux Falls, SD",
+    "startDate": "2013-09",
+    "endDate": "2018-07-01",
+    "contact": "1-866-692-2947",
+    "type": "Onsite",
+    "skills": [
+      "Sales",
+      "Customer Service",
+      "Training/Coaching",
+      "Inventory Management",
+      "Scheduling Management",
+      "Mobile Devices"
+    ],
+    "highlights": [
+      "Maintained knowledge of mobile and IoT technology and trends to close sales and achievement revenue goals.",
+      "Trained and coached Mobile/Connections with the Best Buy Mobile sales philosophy."
+    ],
+    "reasonForLeaving": "Closure of Best Buy Mobile stores nationwide"
+  }
+]

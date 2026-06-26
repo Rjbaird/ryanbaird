@@ -1,13 +1,24 @@
-# [ryanbaird.com](https://ryanbaird.com/)
+# Ryan Baird
 
-This is where I save links to things I've done or what I think. Not so much a portfolio but a hub/reference to places where I am on the internet.
+Personal site and portfolio built with Astro 7, Hono, Datastar, and Cloudflare Workers.
 
-## Communication & Contact:
+## Commands
 
-If you see any issues with my site, I would love to get bug reports, especially about accessibility, UI and rendering issues, performance problems, and any overall usability criticism. If you disagree with what I say on my personal, 100% opinion based blog, you can [report an issue](https://github.com/Rjbaird/ryanbaird/issues) on any post or fill out the [/contact](https://ryanbaird.com/contact) form. I'm always open to friendly discussions.
+| Command | Action |
+| --- | --- |
+| `npm install` | Install dependencies |
+| `npm run dev` | Start the local Astro dev server |
+| `npm run build` | Build the Cloudflare Workers SSR output |
+| `npm run preview` | Preview the built site locally |
+| `npm run deploy` | Build and deploy with Wrangler |
 
-I hope to all issues but I could also just be busy ¯\\\_(ツ)\_/¯
+## Stack
 
-The best way to submit these issues is using this repo's Issue tracker.
+- Astro SSR with the Cloudflare adapter
+- Hono in `src/fetch.ts` for Worker routes and short links
+- Datastar for progressive client-side interactions
+- Astro content collections for blog, projects, jobs, and school entries
 
-I can also be reached on X (rip Twitter), as well as on the other social networking services linked to on my site.
+## Short Links
+
+Short links live in `src/fetch.ts` under `/r/:slug`.

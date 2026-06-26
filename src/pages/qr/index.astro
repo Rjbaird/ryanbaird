@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { shortLinkEntries } from "../../lib/shortlinks";
+
+const defaultSlug = shortLinkEntries.find((entry) => entry.slug === "wedding")?.slug ?? shortLinkEntries[0]?.slug;
+---
+
+<BaseLayout title="QR Codes" description="Generate QR codes for Ryan Baird short links.">
+  <section class="section compact">
+    <div class="page-heading">
+      <p class="eyebrow">Short links</p>
+      <h1>QR Codes</h1>
+      <p>Generate and download QR codes that point to canonical short links on ryanbaird.com.</p>
+    </div>
+  </section>
+
+  <section class="section compact">
+    <div class="qr-tool" data-signals:selected={`'${defaultSlug}'`}>
+      <label class="field-label" for="qr-slug">Short link</label>
+      <select id="qr-slug" data-on:change="$selected = evt.target.value">
+        {shortLinkEntries.map((entry) => (
+          <option value={entry.slug} selected={entry.slug === defaultSlug}>
+            {entry.slug}
+          </option>
+        ))}
+      </select>
+
+      {shortLinkEntries.map((entry) => (
+        <article class="qr-result" data-show={`$selected === '${entry.slug}'`}>
+          <div class="qr-preview">
+            <img src={entry.qrSvgPath} alt={`QR code for ${entry.slug}`} loading="lazy" />
+          </div>
+          <div>
+            <p class="eyebrow">{entry.slug}</p>
+            <h2>{entry.shortUrl}</h2>
+            <p class="meta">Destination: {entry.destination}</p>
+            <div class="button-row">
+              <a class="button" href={entry.qrSvgPath} download={`${entry.slug}.svg`}>Download SVG</a>
+              <a class="button secondary" href={entry.shortUrl}>Open short link</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

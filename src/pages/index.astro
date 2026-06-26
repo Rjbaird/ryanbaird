@@ -1,20 +1,69 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Prose from "../layouts/Prose.astro";
-const entry = await getEntryBySlug("blurbs", "index");
-const { Content } = await entry.render();
+import ProjectCard from "../components/ProjectCard.astro";
+import profilePic from "../assets/images/profile_pic.jpg";
+import { activeEmployment, careerMetadata, formatResumeRange, topSkills } from "../lib/resume";
+
+const projects = (await getCollection("projects"))
+  .filter((project) => !project.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const jobs = activeEmployment.slice(0, 3);
 ---
 
-<BaseLayout
-    title={entry.data.title}
-    description={entry.data.description}
-    keywords={entry.data.tags}
->
-    <main class="">
-        <h1 class="pb-2 text-xl text-red-400">{entry.data.title}</h1>
-        <Prose>
-            <Content />
-        </Prose>
-    </main>
+<BaseLayout description={`Ryan Baird is a ${careerMetadata.title.toLowerCase()} ${careerMetadata.headline}`}>
+  <section class="section hero">
+    <div>
+      <p class="eyebrow">Developer portfolio</p>
+      <h1>Ryan Baird</h1>
+      <p>
+        {careerMetadata.title} {careerMetadata.headline} I build practical web tools,
+        commerce workflows, and internal systems with a bias toward maintainable software.
+      </p>
+      <div class="button-row">
+        <a class="button" href="/projects/">View projects</a>
+        <a class="button secondary" href="/resume/">Resume</a>
+      </div>
+      <div class="tag-row hero-skills" aria-label="Top skills">
+        {topSkills.slice(0, 6).map((skill) => <span>{skill}</span>)}
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <Image src={profilePic} alt="Ryan Baird" widths={[480, 720]} sizes="(max-width: 820px) 100vw, 360px" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <h2>Selected Projects</h2>
+      <a href="/projects/">All projects</a>
+    </div>
+    <div class="grid">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section class="section split">
+    <div>
+      <p class="eyebrow">Recent work</p>
+      <h2>Experience across site operations, e-commerce, internal tools, and web development.</h2>
+      <p class="meta">Work history is rendered from the resume JSON files in <code>src/content/resume</code>.</p>
+    </div>
+    <div class="grid">
+      {jobs.map((job) => (
+        <article class="job-card">
+          <p class="eyebrow">{job.company}</p>
+          <h2>{job.title}</h2>
+          <p>{job.location} · {job.type}</p>
+          <p class="meta">{formatResumeRange(job)}</p>
+          <div class="tag-row">
+            {job.skills.slice(0, 4).map((skill) => <span>{skill}</span>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
 </BaseLayout>

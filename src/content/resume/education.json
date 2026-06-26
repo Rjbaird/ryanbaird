@@ -1,0 +1,28 @@
+[
+  {
+    "name": "University of Minnesota",
+    "slug": "bootcamp",
+    "description": "MERN stack bootcamp",
+    "location": "Minneapolis, MN",
+    "degree": "Full Stack Web Development Bootcamp",
+    "url": "https://www.augie.edu/",
+    "startDate": "2020-07",
+    "endDate": "2020-10",
+    "highlights": [
+      "Coursework included web development fundamentals and building full stack applications with the MERN stack using technologies such as HTML, CSS, JavaScript, SQL, Mongo, Express, React, Node.js, Git and Heroku."
+    ]
+  },
+  {
+    "name": "Augustana University",
+    "slug": "augie",
+    "description": "Psychology degree at Augustana College",
+    "location": "Sioux Falls, SD",
+    "degree": "Bachelor of Arts - Psychology & Philosophy",
+    "url": "https://www.augie.edu/",
+    "startDate": "2009-09",
+    "endDate": "2013-07",
+    "highlights": [
+      "Coursework focused on non-verbal communication, attention, decision-making, statistics, logic and ethics."
+    ]
+  }
+]

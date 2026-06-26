@@ -2,20 +2,17 @@ import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 
 export async function GET(context) {
-    const blogs = await getCollection("blog");
-    return rss({
-        title: "Ryan Baird’s Blog",
-        description:
-            "A guy trying to figure out how this internet thing works.",
-        site: context.site,
-        items: blogs.map((blog) => ({
-            title: blog.data.title,
-            pubDate: blog.data.pubDate,
-            description: blog.data.description,
-            customData: blog.data.customData,
-            // Compute RSS link from blog `slug`
-            // This example assumes all blog are rendered as `/blog/[slug]` routes
-            link: `/blog/${blog.slug}/`,
-        })),
-    });
+  const posts = (await getCollection("blog")).filter((post) => !post.data.draft);
+
+  return rss({
+    title: "Ryan Baird",
+    description: "Writing and notes by Ryan Baird.",
+    site: context.site,
+    items: posts.map((post) => ({
+      title: post.data.title,
+      description: post.data.description,
+      pubDate: post.data.pubDate,
+      link: `/blog/${post.id}/`,
+    })),
+  });
 }

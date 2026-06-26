@@ -1,0 +1,21 @@
+---
+import ResumeDocument from "../../components/ResumeDocument.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { careerMetadata } from "../../lib/resume";
+---
+
+<BaseLayout title="Resume" description={`Resume for Ryan Baird, ${careerMetadata.title}.`}>
+  <section class="section compact">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Resume</p>
+        <h1>Ryan Baird</h1>
+      </div>
+      <div class="button-row">
+        <a class="button" href="/ryan-baird-resume.pdf">Download PDF</a>
+        <a class="button secondary" href="/resume/print/">Print view</a>
+      </div>
+    </div>
+    <ResumeDocument />
+  </section>
+</BaseLayout>
