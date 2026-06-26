@@ -24,6 +24,7 @@
     "hono": "^4.12.27",
     "node-addon-api": "^8.8.0",
     "node-gyp": "^12.4.0",
+    "qr-code-styling": "^1.9.2",
     "qrcode": "^1.5.4",
     "wrangler": "^4.105.0"
   },

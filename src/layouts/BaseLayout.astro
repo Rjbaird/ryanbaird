@@ -319,6 +319,49 @@ const jsonLd = structuredData
     padding: 0.55rem 0.75rem;
   }
 
+  input {
+    min-height: 44px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: white;
+    color: var(--ink);
+    font: inherit;
+    padding: 0.55rem 0.75rem;
+  }
+
+  input[type="color"] {
+    width: 100%;
+    padding: 0.25rem;
+  }
+
+  .qr-designer-layout {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.92fr) minmax(320px, 1.08fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .qr-controls {
+    display: grid;
+    gap: 1.1rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+    padding: 1rem;
+  }
+
+  .control-group,
+  .qr-controls label {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .control-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+
   .qr-result {
     display: grid;
     grid-template-columns: 220px minmax(0, 1fr);
@@ -342,6 +385,60 @@ const jsonLd = structuredData
 
   .qr-preview img {
     width: 100%;
+  }
+
+  .qr-result.designer {
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: start;
+  }
+
+  qr-code-designer,
+  .qr-code-designer-shell {
+    display: block;
+  }
+
+  .qr-code-designer-shell {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .qr-code-designer-preview {
+    display: grid;
+    min-height: 280px;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: white;
+    padding: 1rem;
+  }
+
+  .qr-code-designer-preview svg,
+  .qr-code-designer-preview canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .qr-code-designer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .qr-code-designer-actions button {
+    min-height: 44px;
+    border: 1px solid var(--ink);
+    border-radius: 8px;
+    background: var(--ink);
+    color: white;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 750;
+    padding: 0.65rem 0.95rem;
+  }
+
+  .qr-code-designer-actions button.secondary {
+    background: transparent;
+    color: var(--ink);
   }
 
   .project-image {
@@ -460,6 +557,12 @@ const jsonLd = structuredData
     }
 
     .qr-result {
+      grid-template-columns: 1fr;
+    }
+
+    .qr-designer-layout,
+    .qr-result.designer,
+    .control-grid {
       grid-template-columns: 1fr;
     }
 

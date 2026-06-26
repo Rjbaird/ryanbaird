@@ -2,7 +2,23 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { shortLinkEntries } from "../../lib/shortlinks";
 
-const defaultSlug = shortLinkEntries.find((entry) => entry.slug === "wedding")?.slug ?? shortLinkEntries[0]?.slug;
+const defaultEntry = shortLinkEntries.find((entry) => entry.slug === "wedding") ?? shortLinkEntries[0];
+const signalDefaults = {
+  slug: defaultEntry.slug,
+  shortUrl: defaultEntry.shortUrl,
+  destination: defaultEntry.destination,
+  size: 320,
+  margin: 12,
+  errorCorrection: "H",
+  dotsType: "rounded",
+  dotsColor: "#191919",
+  backgroundColor: "#ffffff",
+  cornersSquareType: "extra-rounded",
+  cornersSquareColor: "#0f766e",
+  cornersDotType: "dot",
+  cornersDotColor: "#7c2d12",
+  logoUrl: "",
+};
 ---
 
 <BaseLayout title="QR Codes" description="Generate QR codes for Ryan Baird short links.">
@@ -15,32 +31,144 @@ const defaultSlug = shortLinkEntries.find((entry) => entry.slug === "wedding")?.
   </section>
 
   <section class="section compact">
-    <div class="qr-tool" data-signals:selected={`'${defaultSlug}'`}>
-      <label class="field-label" for="qr-slug">Short link</label>
-      <select id="qr-slug" data-on:change="$selected = evt.target.value">
-        {shortLinkEntries.map((entry) => (
-          <option value={entry.slug} selected={entry.slug === defaultSlug}>
-            {entry.slug}
-          </option>
-        ))}
-      </select>
-
-      {shortLinkEntries.map((entry) => (
-        <article class="qr-result" data-show={`$selected === '${entry.slug}'`}>
-          <div class="qr-preview">
-            <img src={entry.qrSvgPath} alt={`QR code for ${entry.slug}`} loading="lazy" />
+    <div class="qr-tool" data-signals={JSON.stringify(signalDefaults)}>
+      <div class="qr-designer-layout">
+        <form class="qr-controls">
+          <div class="control-group">
+            <label class="field-label" for="qr-slug">Short link</label>
+            <select
+              id="qr-slug"
+              data-bind:slug
+              data-on:change={shortLinkEntries
+                .map((entry) => `if ($slug === '${entry.slug}') { $shortUrl = '${entry.shortUrl}'; $destination = '${entry.destination}'; }`)
+                .join(" ")}
+            >
+              {shortLinkEntries.map((entry) => (
+                <option value={entry.slug} selected={entry.slug === defaultEntry.slug}>
+                  {entry.slug}
+                </option>
+              ))}
+            </select>
           </div>
-          <div>
-            <p class="eyebrow">{entry.slug}</p>
-            <h2>{entry.shortUrl}</h2>
-            <p class="meta">Destination: {entry.destination}</p>
+
+          <div class="control-group">
+            <p class="field-label">Presets</p>
             <div class="button-row">
-              <a class="button" href={entry.qrSvgPath} download={`${entry.slug}.svg`}>Download SVG</a>
-              <a class="button secondary" href={entry.shortUrl}>Open short link</a>
+              <button type="button" class="button secondary" data-on:click="$dotsType = 'square'; $dotsColor = '#191919'; $backgroundColor = '#ffffff'; $cornersSquareType = 'square'; $cornersSquareColor = '#191919'; $cornersDotType = 'square'; $cornersDotColor = '#191919'; $margin = 16; $errorCorrection = 'H'; $logoUrl = ''">Plain</button>
+              <button type="button" class="button secondary" data-on:click="$dotsType = 'rounded'; $dotsColor = '#191919'; $backgroundColor = '#ffffff'; $cornersSquareType = 'extra-rounded'; $cornersSquareColor = '#0f766e'; $cornersDotType = 'dot'; $cornersDotColor = '#7c2d12'; $margin = 12; $errorCorrection = 'H'">Site</button>
+              <button type="button" class="button secondary" data-on:click="$dotsType = 'classy-rounded'; $dotsColor = '#3f2d27'; $backgroundColor = '#fffaf3'; $cornersSquareType = 'extra-rounded'; $cornersSquareColor = '#9a3412'; $cornersDotType = 'dot'; $cornersDotColor = '#0f766e'; $margin = 14; $errorCorrection = 'H'">Wedding</button>
+              <button type="button" class="button secondary" data-on:click="$dotsType = 'square'; $dotsColor = '#000000'; $backgroundColor = '#ffffff'; $cornersSquareType = 'square'; $cornersSquareColor = '#000000'; $cornersDotType = 'square'; $cornersDotColor = '#000000'; $margin = 20; $errorCorrection = 'H'; $logoUrl = ''">Print-safe</button>
+            </div>
+          </div>
+
+          <div class="control-grid">
+            <label>
+              <span class="field-label">Size</span>
+              <input type="number" min="160" max="1024" step="16" data-bind:size />
+            </label>
+            <label>
+              <span class="field-label">Margin</span>
+              <input type="number" min="0" max="64" step="1" data-bind:margin />
+            </label>
+            <label>
+              <span class="field-label">Error correction</span>
+              <select data-bind:error-correction>
+                <option value="L">L</option>
+                <option value="M">M</option>
+                <option value="Q">Q</option>
+                <option value="H">H</option>
+              </select>
+            </label>
+            <label>
+              <span class="field-label">Dot style</span>
+              <select data-bind:dots-type>
+                <option value="square">Square</option>
+                <option value="rounded">Rounded</option>
+                <option value="dots">Dots</option>
+                <option value="classy">Classy</option>
+                <option value="classy-rounded">Classy rounded</option>
+                <option value="extra-rounded">Extra rounded</option>
+              </select>
+            </label>
+            <label>
+              <span class="field-label">Dot color</span>
+              <input type="color" data-bind:dots-color />
+            </label>
+            <label>
+              <span class="field-label">Background</span>
+              <input type="color" data-bind:background-color />
+            </label>
+            <label>
+              <span class="field-label">Corner square</span>
+              <select data-bind:corners-square-type>
+                <option value="square">Square</option>
+                <option value="dot">Dot</option>
+                <option value="rounded">Rounded</option>
+                <option value="extra-rounded">Extra rounded</option>
+                <option value="dots">Dots</option>
+                <option value="classy">Classy</option>
+                <option value="classy-rounded">Classy rounded</option>
+              </select>
+            </label>
+            <label>
+              <span class="field-label">Corner square color</span>
+              <input type="color" data-bind:corners-square-color />
+            </label>
+            <label>
+              <span class="field-label">Corner dot</span>
+              <select data-bind:corners-dot-type>
+                <option value="square">Square</option>
+                <option value="dot">Dot</option>
+                <option value="rounded">Rounded</option>
+                <option value="dots">Dots</option>
+                <option value="classy">Classy</option>
+                <option value="classy-rounded">Classy rounded</option>
+                <option value="extra-rounded">Extra rounded</option>
+              </select>
+            </label>
+            <label>
+              <span class="field-label">Corner dot color</span>
+              <input type="color" data-bind:corners-dot-color />
+            </label>
+          </div>
+
+          <label>
+            <span class="field-label">Logo URL</span>
+            <input type="url" placeholder="https://example.com/logo.svg" data-bind:logo-url />
+          </label>
+        </form>
+
+        <article class="qr-result designer">
+          <qr-code-designer
+            data-attr:data="$shortUrl"
+            data-attr:size="$size"
+            data-attr:margin="$margin"
+            data-attr:error-correction="$errorCorrection"
+            data-attr:dots-type="$dotsType"
+            data-attr:dots-color="$dotsColor"
+            data-attr:background-color="$backgroundColor"
+            data-attr:corners-square-type="$cornersSquareType"
+            data-attr:corners-square-color="$cornersSquareColor"
+            data-attr:corners-dot-type="$cornersDotType"
+            data-attr:corners-dot-color="$cornersDotColor"
+            data-attr:image="$logoUrl"
+            data-attr:file-name="$slug + '-qr-code'"
+          ></qr-code-designer>
+          <div>
+            <p class="eyebrow" data-text="$slug"></p>
+            <h2 data-text="$shortUrl"></h2>
+            <p class="meta">Destination: <span data-text="$destination"></span></p>
+            <div class="button-row">
+              <a class="button secondary" href={defaultEntry.qrSvgPath} data-attr:href="'/qr/' + $slug + '.svg'" data-attr:download="$slug + '.svg'">Reliable SVG</a>
+              <a class="button secondary" href={defaultEntry.shortUrl} data-attr:href="$shortUrl">Open short link</a>
             </div>
           </div>
         </article>
-      ))}
+      </div>
     </div>
   </section>
+
+  <script>
+    import "../../scripts/qr-code-designer";
+  </script>
 </BaseLayout>
