@@ -3,7 +3,7 @@ export const siteUrl = "https://ryanbaird.com";
 export const shortLinks = {
   resume: "/ryan-baird-resume.pdf",
   github: "https://github.com/Rjbaird",
-  linkedin: "https://www.linkedin.com/in/ryanbaird/",
+  linkedin: "https://www.linkedin.com/in/bairdryan/",
   projects: "/projects/",
   blog: "/blog/",
   wedding: "https://www.zola.com/wedding/mariahandryanoctober11",
